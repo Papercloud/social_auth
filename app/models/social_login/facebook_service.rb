@@ -12,7 +12,8 @@ module SocialLogin
       unless service = find_by_remote_id(request.id)
         service = new
         service.remote_id = request.id
-        service.user = User.create #pass a method back to user to create eg. User.create_with_facebook(request)
+        #creates a user account even if the service fails to persist
+        service.user = User.create_with_facebook_request(request)
         service.method = "Authenticated"
       end
 

@@ -21,6 +21,16 @@ module SocialLogin
     end
 
     describe "self.init_with" do
+      before :each do
+        #create an override method on user which gets called whenever
+        #we want a user created you do the rest!
+        User.class_eval do
+          has_many :services, inverse_of: :user, class_name: SocialLogin::Service
+          def self.create_with_facebook_request(request)
+            User.create
+          end
+        end
+      end
 
       it "creates service if doesn't exist" do
         VCR.use_cassette('facebook_service/valid_request') do
@@ -42,6 +52,13 @@ module SocialLogin
           expect{
             expect(FacebookService.init_with(fb_access_token)).to eq service
           }.to change(FacebookService, :count).by(0)
+        end
+      end
+
+      it "User receives override method" do
+        expect(User).to receive(:create_with_facebook_request).once
+        VCR.use_cassette('facebook_service/valid_request') do
+          FacebookService.init_with(fb_access_token)
         end
       end
 
