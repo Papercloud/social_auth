@@ -13,7 +13,7 @@ class SocialLogin::InstallGenerator < Rails::Generators::Base
   end
 
   def copy_initializer
-    # template "initializer.rb", "config/initializers/notify_user.rb"
+    template "initializer.rb", "config/initializers/social_login.rb"
   end
 
   def self.next_migration_number(dirname)

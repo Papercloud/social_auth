@@ -27,7 +27,7 @@ module SocialLogin
         User.class_eval do
           has_many :services, inverse_of: :user, class_name: SocialLogin::Service
           def self.create_with_facebook_request(request)
-            User.create
+            create
           end
         end
       end
@@ -40,14 +40,23 @@ module SocialLogin
         end
       end
 
-      it "creates authenticate service type" do
+      it "creates service with type set to authenticated" do
         VCR.use_cassette('facebook_service/valid_request') do
           expect(FacebookService.init_with(fb_access_token).method).to eq "Authenticated"
         end
       end
 
-      it "returns service if does exist" do
+      it "returns service if remote_id and method is authenticated already exist" do
         service = FacebookService.create(access_token: "34223", remote_id: "10204796229055532", user: @user, method: "Authenticated")
+        VCR.use_cassette('facebook_service/valid_request') do
+          expect{
+            expect(FacebookService.init_with(fb_access_token)).to eq service
+          }.to change(FacebookService, :count).by(0)
+        end
+      end
+
+      it "returns service if no authenticate method exists however a single connected service does exist" do
+        service = FacebookService.create(access_token: "34223", remote_id: "10204796229055532", user: @user, method: "Connected")
         VCR.use_cassette('facebook_service/valid_request') do
           expect{
             expect(FacebookService.init_with(fb_access_token)).to eq service
@@ -80,7 +89,7 @@ module SocialLogin
       end
 
       it "returns service if does exist" do
-        service = FacebookService.create(access_token: "34223", remote_id: "10204796229055532", user: @user, method: "Authenticated")
+        service = FacebookService.create(access_token: "34223", remote_id: "10204796229055532", user: @user, method: "Connected")
         VCR.use_cassette('facebook_service/valid_request') do
           expect{
             expect(FacebookService.connect_with(@user, fb_access_token)).to eq service

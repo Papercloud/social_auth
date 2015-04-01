@@ -9,12 +9,17 @@ module SocialLogin
       fb_user = FbGraph2::User.me(auth_token)
       request = fb_user.fetch
 
-      unless service = find_by_remote_id(request.id)
-        service = new
-        service.remote_id = request.id
-        #creates a user account even if the service fails to persist
-        service.user = User.create_with_facebook_request(request)
-        service.method = "Authenticated"
+      unless service = find_by_remote_id_and_method(request.id, "Authenticated")
+        #attempts to look if some other user connected this same facebook account
+        if where(remote_id: request.id, method: "Connected").count == 1
+          service = find_by_remote_id_and_method(request.id, "Connected")
+        else
+          service = new
+          service.remote_id = request.id
+          #creates a user account even if the service fails to persist
+          service.user = User.create_with_facebook_request(request)
+          service.method = "Authenticated"
+        end
       end
 
       service.access_token = request.access_token
@@ -27,7 +32,7 @@ module SocialLogin
       fb_user = FbGraph2::User.me(auth_token)
       request = fb_user.fetch
 
-      unless service = find_by_remote_id(request.id)
+      unless service = find_by_remote_id_and_method(request.id, "Connected")
         service = new
         service.remote_id = request.id
         service.user = user

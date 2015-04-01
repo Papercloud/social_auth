@@ -1,6 +1,15 @@
 require "social_login/engine"
 
 module SocialLogin
+
+  mattr_accessor :redis_instance_method
+  @@redis_instance_method = nil
+
+  # Used to set up Social Login from the initializer.
+  def self.setup
+    yield self
+  end
+
   def self.authenticate(type, auth_token)
     case type.camelize
     when "Facebook"
