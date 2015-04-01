@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.2.0"
   s.add_dependency 'fb_graph2'
+  s.add_dependency 'fakeredis'
 
   s.add_development_dependency "pg"
   s.add_development_dependency 'rspec-rails'

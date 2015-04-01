@@ -5,6 +5,7 @@ module SocialLogin
   describe FacebookService do
     before :each do
       @user = User.create(email: "email@address.com")
+      allow_any_instance_of(FacebookService).to receive(:redis_instance).and_return(Redis.new)
     end
 
     describe "social login methods" do
@@ -70,5 +71,20 @@ module SocialLogin
         end
       end
     end
+
+    describe "friend_ids" do
+      before :each do
+        @service = FacebookService.create(access_token: fb_access_token, remote_id: "10204796229055532", user: @user, method: "Authenticated")
+      end
+
+      it "returns friend_ids" do
+        VCR.use_cassette("facebook_service/valid_friends_request") do
+          expect{
+            expect(@service.friend_ids).to_not be_empty
+          }.to_not raise_error
+        end
+      end
+    end
+
   end
 end

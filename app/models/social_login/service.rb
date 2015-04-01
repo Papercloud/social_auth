@@ -10,7 +10,19 @@ module SocialLogin
     #settings
     self.table_name = "social_login_services"
 
-    def self.init_with(request)
+    def self.init_with(auth_token)
+        puts "need to overide"
+    end
+
+    def self.connect_with(user, auth_token)
+    end
+
+    # helper method to generate redis keys
+    def redis_key(str)
+      "#{type}:#{id}:#{str}"
+    end
+
+    def redis_instance
 
     end
 

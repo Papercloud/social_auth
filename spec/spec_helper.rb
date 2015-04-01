@@ -26,6 +26,15 @@ require 'rspec/rails'
 require 'factory_girl_rails'
 require "awesome_print"
 require 'vcr'
+require "fakeredis"
+
+### SETUP VCR
+VCR.configure do |c|
+  c.cassette_library_dir = "#{Rails.root}/spec/fixtures/vcr_cassettes"
+  c.ignore_localhost = true
+  c.allow_http_connections_when_no_cassette = false
+end
+
 
 RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
@@ -36,7 +45,7 @@ RSpec.configure do |config|
   end
 
   def fb_access_token
-    "CAAVcHuFT94wBAHzoGuFRL1khawc9EjpddCLfMeYttaTLxwkm0aDC7WqU0vJNm7XetXD5FyLiT84W5SudiInWUAvWVbSRLrjNrFbVim7gxjUGnckny5pZBiAvBGU0XKwbWMw3jmr4QKvOLKLbDCbbMCHLgwoKCZAQAK5ibrwbcJ507gzhUVtEACLfaZAsPvBStzRrXYP162DlXSnWVQv"
+    "CAAVcHuFT94wBAHINZBZB7F1vCW5m6JwFrLTRIasj8uhJBsEjWbWZCeTcTLYiqhdKTneKTPCGmrT8OTuUuTc8BTmffT9nfaP8bdm5D1n8ynkZBRX2SF7Q2YD99wL4Flf0nSEBDhWn3a9JEkN5zhRq63b1ia6hA3QzFpYi510hJ7NyH1FulwbnsRCMl4LkgDtzUK8T424ZCiZCd8a3gWQXwI"
   end
 
 end
