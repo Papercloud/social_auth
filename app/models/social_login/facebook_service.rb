@@ -5,13 +5,13 @@ module SocialLogin
 
     def self.init_with(auth_token)
       #creates facebook user if not found
-      user = FbGraph2::User.me(auth_token)
-      request = user.fetch
+      fb_user = FbGraph2::User.me(auth_token)
+      request = fb_user.fetch
 
       unless service = find_by_remote_id(request.id)
         service = new
         service.remote_id = request.id
-        service.user = User.create #pass a method back to user
+        service.user = User.create #pass a method back to user to create eg. User.create_with_facebook(request)
         service.method = "Authenticated"
       end
 
@@ -19,12 +19,23 @@ module SocialLogin
       service.save
 
       return service
-
-    # rescue FbGraph2::Exception::InvalidToken => e
     end
 
-    def self.connect_with(user, type, auth_token)
+    def self.connect_with(user, auth_token)
+      fb_user = FbGraph2::User.me(auth_token)
+      request = fb_user.fetch
 
+      unless service = find_by_remote_id(request.id)
+        service = new
+        service.remote_id = request.id
+        service.user = user
+        service.method = "Connected"
+      end
+
+      service.access_token = request.access_token
+      service.save
+
+      return service
     end
 
   end

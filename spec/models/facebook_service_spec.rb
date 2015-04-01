@@ -24,8 +24,14 @@ module SocialLogin
       it "creates service if doesn't exist" do
         VCR.use_cassette('facebook_service/valid_request') do
           expect{
-            SocialLogin.authenticate("Facebook", fb_access_token)
+            FacebookService.init_with(fb_access_token)
           }.to change(FacebookService, :count).by(1)
+        end
+      end
+
+      it "creates authenticate service type" do
+        VCR.use_cassette('facebook_service/valid_request') do
+          expect(FacebookService.init_with(fb_access_token).method).to eq "Authenticated"
         end
       end
 
@@ -33,11 +39,36 @@ module SocialLogin
         service = FacebookService.create(access_token: "34223", remote_id: "10204796229055532", user: @user, method: "Authenticated")
         VCR.use_cassette('facebook_service/valid_request') do
           expect{
-            expect(SocialLogin.authenticate("Facebook", fb_access_token)).to eq service
+            expect(FacebookService.init_with(fb_access_token)).to eq service
           }.to change(FacebookService, :count).by(0)
         end
       end
 
+    end
+
+    describe "self.connect_with" do
+      it "creates service if doesn't exist" do
+        VCR.use_cassette('facebook_service/valid_request') do
+          expect{
+            FacebookService.connect_with(@user, fb_access_token)
+          }.to change(FacebookService, :count).by(1)
+        end
+      end
+
+      it "creates authenticate service type" do
+        VCR.use_cassette('facebook_service/valid_request') do
+          expect(FacebookService.connect_with(@user, fb_access_token).method).to eq "Connected"
+        end
+      end
+
+      it "returns service if does exist" do
+        service = FacebookService.create(access_token: "34223", remote_id: "10204796229055532", user: @user, method: "Authenticated")
+        VCR.use_cassette('facebook_service/valid_request') do
+          expect{
+            expect(FacebookService.connect_with(@user, fb_access_token)).to eq service
+          }.to change(FacebookService, :count).by(0)
+        end
+      end
     end
   end
 end
