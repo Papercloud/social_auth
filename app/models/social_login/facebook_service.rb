@@ -12,11 +12,19 @@ module SocialLogin
         service = new
         service.remote_id = request.id
         service.user = User.create #pass a method back to user
-        service.access_token = request.access_token
-        service.save
+        service.method = "Authenticated"
       end
 
+      service.access_token = request.access_token
+      service.save
+
       return service
+
+    # rescue FbGraph2::Exception::InvalidToken => e
+    end
+
+    def self.connect_with(user, type, auth_token)
+
     end
 
   end

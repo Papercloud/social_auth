@@ -25,6 +25,7 @@ puts "Testing with Rails #{Rails::VERSION::STRING} and Ruby #{RUBY_VERSION}"
 require 'rspec/rails'
 require 'factory_girl_rails'
 require "awesome_print"
+require 'vcr'
 
 RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
@@ -32,6 +33,10 @@ RSpec.configure do |config|
 
   def json
     JSON.parse(response.body).with_indifferent_access
+  end
+
+  def fb_access_token
+    "CAAVcHuFT94wBAHzoGuFRL1khawc9EjpddCLfMeYttaTLxwkm0aDC7WqU0vJNm7XetXD5FyLiT84W5SudiInWUAvWVbSRLrjNrFbVim7gxjUGnckny5pZBiAvBGU0XKwbWMw3jmr4QKvOLKLbDCbbMCHLgwoKCZAQAK5ibrwbcJ507gzhUVtEACLfaZAsPvBStzRrXYP162DlXSnWVQv"
   end
 
 end
