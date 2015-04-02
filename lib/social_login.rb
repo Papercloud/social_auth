@@ -14,13 +14,17 @@ module SocialLogin
     case type.camelize
     when "Facebook"
       FacebookService.init_with(auth_token)
+    when "Twitter"
+      TwitterService.init_with(auth_token)
     end
   end
 
   def self.connect(user, type, auth_token)
     case type.camelize
     when "Facebook"
-      FacebookService.connect_with(user, type, auth_token)
+      FacebookService.connect_with(user, auth_token)
+    when "Twitter"
+      TwitterService.connect_with(user, auth_token)
     end
   end
 end

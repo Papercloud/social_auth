@@ -6,31 +6,24 @@ module SocialLogin
 
     def self.init_with(auth_token={})
       request = create_connection(auth_token)
-      return create_with(request,
-        User.create_with_facebook_request(request), "Authenticated")
+
+      return create_with_request(
+        request.id,
+        User.create_with_facebook_request(request),
+        "Authenticated",
+        {access_token: request.access_token}
+      )
     end
 
     def self.connect_with(user, auth_token={})
-      return create_with(create_connection(auth_token), user, "Connected")
-    end
+      request = create_connection(auth_token)
 
-    def self.create_with(request, user, method="Connected")
-      unless service = find_by_remote_id_and_method(request.id, method)
-        #attempts to look if some other user connected this same facebook account if its an authentication request
-        if where(remote_id: request.id, method: "Connected").count == 1 and method == "Authenticated"
-          service = find_by_remote_id_and_method(request.id, "Connected")
-        else
-          service = new
-          service.remote_id = request.id
-          service.user = user
-          service.method = method
-        end
-      end
-
-      service.access_token = {access_token: request.access_token}
-      service.save
-
-      return service
+      return create_with_request(
+        request.id,
+        user,
+        "Connected",
+        {access_token: request.access_token}
+      )
     end
 
     def self.create_connection(auth_token={})

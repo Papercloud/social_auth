@@ -45,8 +45,17 @@ RSpec.configure do |config|
     JSON.parse(response.body).with_indifferent_access
   end
 
+  def twitter_access_token
+    {
+      access_token: "410739240-pHPJnKJsQufXJXrH2j2gmhWx923Y4O3b1ziOZ3gi",
+      access_token_secret: "B1e0enBgDm1YwQUml58WCupYHlQRjXMjtvKYjdYyT78iT"
+    }
+  end
+
   def fb_access_token
-    {access_token: "CAAVcHuFT94wBAGvsprjaxF4EuMZB25TgpX8dn9072c2hAs3NuZC8lHr2Urdat4SAlcGnCiy4OYINxTZC7MR4JseskNZB6ehV5KDAQ95dunynDqhZBSCKm2OTh940m0OgtomsFXTtycHU3QCctKo3DXLh8oFETkwgyiYAQYUxSLlGHORqRKGiaR6aZCYWrjWXdxJKuJDBp8ZAeMd9R9ZCB1bN"}
+    {
+      access_token: "CAAVcHuFT94wBAGvsprjaxF4EuMZB25TgpX8dn9072c2hAs3NuZC8lHr2Urdat4SAlcGnCiy4OYINxTZC7MR4JseskNZB6ehV5KDAQ95dunynDqhZBSCKm2OTh940m0OgtomsFXTtycHU3QCctKo3DXLh8oFETkwgyiYAQYUxSLlGHORqRKGiaR6aZCYWrjWXdxJKuJDBp8ZAeMd9R9ZCB1bN"
+    }
   end
 
 end

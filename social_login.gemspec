@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.0"
   s.add_dependency 'fb_graph2'
+  s.add_dependency 'twitter'
 
   s.add_development_dependency 'fakeredis'
   s.add_development_dependency "pg"
@@ -27,4 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'awesome_print'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
+
 end

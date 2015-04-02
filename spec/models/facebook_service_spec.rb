@@ -50,37 +50,22 @@ module SocialLogin
         end
       end
 
-      it "creates service with type set to authenticated" do
-        VCR.use_cassette('facebook_service/valid_request') do
-          expect(FacebookService.init_with(fb_access_token).method).to eq "Authenticated"
-        end
-      end
-
-      it "returns service if remote_id and method is authenticated already exist" do
-        service = FacebookService.create(access_token: {access_token: "34223"}, remote_id: "10204796229055532", user: @user, method: "Authenticated")
-        VCR.use_cassette('facebook_service/valid_request') do
-          expect{
-            expect(FacebookService.init_with(fb_access_token)).to eq service
-          }.to change(FacebookService, :count).by(0)
-        end
-      end
-
-      it "returns service if no authenticate method exists however a single connected service does exist" do
-        service = FacebookService.create(access_token: {access_token: "34223"}, remote_id: "10204796229055532", user: @user, method: "Connected")
-        VCR.use_cassette('facebook_service/valid_request') do
-          expect{
-            expect(FacebookService.init_with(fb_access_token)).to eq service
-          }.to change(FacebookService, :count).by(0)
-        end
-      end
-
       it "User receives override method" do
         expect(User).to receive(:create_with_facebook_request).once
         VCR.use_cassette('facebook_service/valid_request') do
           FacebookService.init_with(fb_access_token)
         end
       end
+    end
 
+    describe "create_connection" do
+      it "returns valid connection" do
+        VCR.use_cassette('facebook_service/valid_request') do
+          expect{
+            FacebookService.create_connection(fb_access_token)
+          }.to_not raise_error
+        end
+      end
     end
 
     describe "self.connect_with" do
@@ -89,21 +74,6 @@ module SocialLogin
           expect{
             FacebookService.connect_with(@user, fb_access_token)
           }.to change(FacebookService, :count).by(1)
-        end
-      end
-
-      it "creates authenticate service type" do
-        VCR.use_cassette('facebook_service/valid_request') do
-          expect(FacebookService.connect_with(@user, fb_access_token).method).to eq "Connected"
-        end
-      end
-
-      it "returns service if does exist" do
-        service = FacebookService.create(access_token: {access_token: "34223"}, remote_id: "10204796229055532", user: @user, method: "Connected")
-        VCR.use_cassette('facebook_service/valid_request') do
-          expect{
-            expect(FacebookService.connect_with(@user, fb_access_token)).to eq service
-          }.to change(FacebookService, :count).by(0)
         end
       end
     end
