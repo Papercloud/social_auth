@@ -4,18 +4,17 @@ module SocialLogin
   describe TwitterService do
     before :each do
       @user = User.create(email: "email@address.com")
-      allow_any_instance_of(TwitterService).to receive(:redis_instance).and_return(Redis.new)
     end
 
     describe "social login methods" do
       it "receives init_with on authenticate" do
         expect(TwitterService).to receive(:init_with)
-        SocialLogin.authenticate("Twitter", {access_token: "access_token", access_token_secret: "secret_token"})
+        SocialLogin.authenticate("twitter", {access_token: "access_token", access_token_secret: "secret_token"})
       end
 
       it "receives connect_with on connect" do
         expect(TwitterService).to receive(:connect_with)
-        SocialLogin.connect(@user, "Twitter", {access_token: "access_token", access_token_secret: "secret_token"})
+        SocialLogin.connect(@user, "twitter", {access_token: "access_token", access_token_secret: "secret_token"})
       end
     end
 

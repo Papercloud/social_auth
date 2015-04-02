@@ -58,4 +58,10 @@ RSpec.configure do |config|
     }
   end
 
+  def google_plus_access_token
+    {
+      access_token: "ya29.SQG7aQmkQ8a870DI8OoSMgA9rIrYuTCdKDdnm3leB7JMchypVE05rGOEFhWzY2glQBInLa21wQuRnw"
+    }
+  end
+
 end

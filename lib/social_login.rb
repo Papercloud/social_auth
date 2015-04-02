@@ -16,6 +16,8 @@ module SocialLogin
       FacebookService.init_with(auth_token)
     when "Twitter"
       TwitterService.init_with(auth_token)
+    when "GooglePlus"
+      GooglePlusService.init_with(auth_token)
     end
   end
 
@@ -25,6 +27,8 @@ module SocialLogin
       FacebookService.connect_with(user, auth_token)
     when "Twitter"
       TwitterService.connect_with(user, auth_token)
+    when "GooglePlus"
+      GooglePlusService.connect_with(user, auth_token)
     end
   end
 end

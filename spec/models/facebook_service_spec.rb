@@ -11,12 +11,12 @@ module SocialLogin
     describe "social login methods" do
       it "receives init_with on authenticate" do
         expect(FacebookService).to receive(:init_with)
-        SocialLogin.authenticate("Facebook", {access_token: "access_token"})
+        SocialLogin.authenticate("facebook", {access_token: "access_token"})
       end
 
       it "receives connect_with on connect" do
         expect(FacebookService).to receive(:connect_with)
-        SocialLogin.connect(@user, "Facebook", {access_token: "access_token"})
+        SocialLogin.connect(@user, "facebook", {access_token: "access_token"})
       end
     end
 

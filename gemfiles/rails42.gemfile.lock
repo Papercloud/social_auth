@@ -3,6 +3,7 @@ PATH
   specs:
     social_login (0.0.1)
       fb_graph2
+      google_plus
       rails (~> 4.0)
       twitter
 
@@ -72,6 +73,9 @@ GEM
       url_safe_base64
     globalid (0.3.3)
       activesupport (>= 4.1.0)
+    google_plus (0.2.3)
+      json
+      rest-client (~> 1.6.1)
     hike (1.2.3)
     http (0.6.4)
       http_parser.rb (~> 0.6.0)
@@ -129,6 +133,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     redis (3.2.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec-core (3.2.2)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.0)

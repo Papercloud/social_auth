@@ -1,0 +1,337 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/plus/v1/people/me?key=AIzaSyCd8eLtVJcraLo9xGrFInUsKBwRk8YAYFM&pp=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Vary:
+      - Origin
+      - X-Origin
+      Www-Authenticate:
+      - Bearer realm="https://accounts.google.com/"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Encoding:
+      - gzip
+      Date:
+      - Thu, 02 Apr 2015 05:18:16 GMT
+      Expires:
+      - Thu, 02 Apr 2015 05:18:16 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.5
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAIWMvQ7CMAyEXwV5zgASUzZUMbCzIQbTWK0lN0ZOqARR3r0p
+        XdjY7r77KUBmauDLJhL4W4GgE3IED4PoAwUcGGHSleArj+fvxMFEKeFAjV7i
+        jMJh1xkFiplRUstFe8ys8fp+rqWRMJD98MZO7U6NP5uvdwe9hlY+7g///mtd
+        ADsWGJ+9AAAA
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 05:18:16 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/plus/v1/people/123?pp=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth AIzaSyAKMHRoLKyRo5rivF8hq_Ic3SmvphBYIBk
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Vary:
+      - Origin
+      - X-Origin
+      Www-Authenticate:
+      - Bearer realm="https://accounts.google.com/", error=invalid_token
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Encoding:
+      - gzip
+      Date:
+      - Thu, 02 Apr 2015 05:22:47 GMT
+      Expires:
+      - Thu, 02 Apr 2015 05:22:47 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.5
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAIWMvQ7CMAyEXwV5zgASUzZUMbCzIQbTWK0lN0ZOqARR3r0p
+        XdjY7r77KUBmauDLJhL4W4GgE3IED4PoAwUcGGHSleArj+fvxMFEKeFAjV7i
+        jMJh1xkFiplRUstFe8ys8fp+rqWRMJD98MZO7U6NP5uvdwe9hlY+7g///mtd
+        ADsWGJ+9AAAA
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 05:22:47 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/plus/v1/people/123?key=AIzaSyDV3n5ZyIB6osMCPiFKmo1kDcafra7LnSQ&pp=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth ya29.SQG7aQmkQ8a870DI8OoSMgA9rIrYuTCdKDdnm3leB7JMchypVE05rGOEFhWzY2glQBInLa21wQuRnw
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Vary:
+      - Origin
+      - X-Origin
+      Www-Authenticate:
+      - Bearer realm="https://accounts.google.com/", error=invalid_token
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Encoding:
+      - gzip
+      Date:
+      - Thu, 02 Apr 2015 05:25:54 GMT
+      Expires:
+      - Thu, 02 Apr 2015 05:25:54 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.5
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAIWMvQ7CMAyEXwV5zgASUzZUMbCzIQbTWK0lN0ZOqARR3r0p
+        XdjY7r77KUBmauDLJhL4W4GgE3IED4PoAwUcGGHSleArj+fvxMFEKeFAjV7i
+        jMJh1xkFiplRUstFe8ys8fp+rqWRMJD98MZO7U6NP5uvdwe9hlY+7g///mtd
+        ADsWGJ+9AAAA
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 05:25:54 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/plus/v1/people/123?key=AIzaSyAKMHRoLKyRo5rivF8hq_Ic3SmvphBYIBk&pp=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth ya29.SQG7aQmkQ8a870DI8OoSMgA9rIrYuTCdKDdnm3leB7JMchypVE05rGOEFhWzY2glQBInLa21wQuRnw
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Vary:
+      - Origin
+      - X-Origin
+      Www-Authenticate:
+      - Bearer realm="https://accounts.google.com/", error=invalid_token
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Encoding:
+      - gzip
+      Date:
+      - Thu, 02 Apr 2015 05:26:27 GMT
+      Expires:
+      - Thu, 02 Apr 2015 05:26:27 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.5
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAIWMvQ7CMAyEXwV5zgASUzZUMbCzIQbTWK0lN0ZOqARR3r0p
+        XdjY7r77KUBmauDLJhL4W4GgE3IED4PoAwUcGGHSleArj+fvxMFEKeFAjV7i
+        jMJh1xkFiplRUstFe8ys8fp+rqWRMJD98MZO7U6NP5uvdwe9hlY+7g///mtd
+        ADsWGJ+9AAAA
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 05:26:27 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/plus/v1/people/105735510282572548726?pp=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth ya29.SQG7aQmkQ8a870DI8OoSMgA9rIrYuTCdKDdnm3leB7JMchypVE05rGOEFhWzY2glQBInLa21wQuRnw
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 02 Apr 2015 05:29:50 GMT
+      Date:
+      - Thu, 02 Apr 2015 05:29:50 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"RqKWnRU4WW46-6W3rWhLR9iFZQM/b7BLAo0W9hESSZJoHu_ksMwr20M"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '1789'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.5
+    body:
+      encoding: UTF-8
+      string: '{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/b7BLAo0W9hESSZJoHu_ksMwr20M\"","occupation":"Software
+        Engineer","gender":"male","urls":[{"value":"http://twitter.com/seejohnrun","type":"otherProfile","label":"seejohnrun"},{"value":"http://www.quora.com/john-crepezzi","type":"otherProfile","label":"john-crepezzi"},{"value":"http://seejohncode.com","type":"otherProfile","label":"See
+        John Code"},{"value":"http://johncrepezzi.com","type":"otherProfile","label":"John
+        C"},{"value":"http://facebook.com/seejohnrun","type":"otherProfile","label":"seejohnrun"},{"value":"http://www.linkedin.com/in/johncrepezzi","type":"otherProfile","label":"johncrepezzi"},{"value":"https://profiles.google.com/105735510282572548726/buzz","type":"contributor","label":"Buzz"}],"objectType":"person","id":"105735510282572548726","displayName":"John
+        Crepezzi","name":{"familyName":"Crepezzi","givenName":"John"},"braggingRights":"Yoo","aboutMe":"A
+        little about me","relationshipStatus":"married","url":"https://plus.google.com/+JohnCrepezzi","image":{"url":"https://lh5.googleusercontent.com/-6I-7foiMk5w/AAAAAAAAAAI/AAAAAAAAAMs/MfJTlEo6CYo/photo.jpg?sz=50","isDefault":false},"organizations":[{"name":"New
+        Jersey Institute of Technology","title":"Computer Science","type":"school","primary":false}],"placesLived":[{"value":"Verona,
+        NJ"},{"value":"Clifton, NJ"},{"value":"Barnegat, NJ"},{"value":"Forked River,
+        NJ"},{"value":"Jersey City Heights, NJ"}],"isPlusUser":true,"circledByCount":189,"verified":false,"cover":{"layout":"banner","coverPhoto":{"url":"https://lh3.googleusercontent.com/-mWVxlMQ_p6Q/UcojOZ0TxhI/AAAAAAAABls/KJF8RqBkb-M/s630-fcrop64=1,19f61022d9a8b260/%25C2%25A9%2BRomain%2BGuy_Delicate%2BArch.jpg","height":626,"width":940},"coverInfo":{"topImageOffset":0,"leftImageOffset":0}}}'
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 05:29:51 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/plus/v1/people/me?pp=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth ya29.SQG7aQmkQ8a870DI8OoSMgA9rIrYuTCdKDdnm3leB7JMchypVE05rGOEFhWzY2glQBInLa21wQuRnw
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 02 Apr 2015 05:46:47 GMT
+      Date:
+      - Thu, 02 Apr 2015 05:46:47 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"RqKWnRU4WW46-6W3rWhLR9iFZQM/oB9pPaM45R0uz8AWm-aMT-L7Bbw"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '1394'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.5
+    body:
+      encoding: UTF-8
+      string: '{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/oB9pPaM45R0uz8AWm-aMT-L7Bbw\"","gender":"male","emails":[{"value":"dawilster143@gmail.com","type":"account"}],"urls":[{"value":"https://twitter.com/willports","type":"otherProfile","label":"Twitter"},{"value":"http://wrapbootstrap.com/user/william","type":"otherProfile","label":"Bootstrap
+        Template developer"}],"objectType":"person","id":"117652050090394249462","displayName":"William
+        Porter","name":{"familyName":"Porter","givenName":"William"},"url":"https://plus.google.com/117652050090394249462","image":{"url":"https://lh3.googleusercontent.com/-pM_u9D4Qq_o/AAAAAAAAAAI/AAAAAAAAAZ0/5LI0IQyn4EA/photo.jpg?sz=50","isDefault":false},"organizations":[{"name":"RMIT
+        University","title":"Computer Science","type":"school","startDate":"2012","primary":true},{"name":"psdtobootstrap.com","title":"Lead
+        Developer","type":"work","startDate":"2012","primary":true}],"placesLived":[{"value":"Melbourne"}],"isPlusUser":true,"language":"en_GB","ageRange":{"min":21},"circledByCount":23,"verified":false,"cover":{"layout":"banner","coverPhoto":{"url":"https://lh3.googleusercontent.com/-IxRknD2180s/UcojKSfeWII/AAAAAAAABkA/IKXa_LVQP0U/s630-fcrop64=1,200e2ecddf77d131/%25C2%25A9%2BAravind%2BKrishnaswamy_20120408-%252818_58_48%2529-sobranes-arch-s2-0387-Edit.jpg","height":624,"width":940},"coverInfo":{"topImageOffset":0,"leftImageOffset":0}}}'
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 05:46:47 GMT
+recorded_with: VCR 2.9.3
