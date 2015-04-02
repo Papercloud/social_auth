@@ -5,44 +5,40 @@ module SocialLogin
     FACEBOOK_CACHE = 2_592_000 # cache expiry in seconds
 
     def self.init_with(auth_token={})
-      #creates facebook user if not found
-      fb_user = FbGraph2::User.me(auth_token[:access_token])
-      request = fb_user.fetch
+      request = create_connection(auth_token)
+      return create_with(request,
+        User.create_with_facebook_request(request), "Authenticated")
+    end
 
-      unless service = find_by_remote_id_and_method(request.id, "Authenticated")
-        #attempts to look if some other user connected this same facebook account
-        if where(remote_id: request.id, method: "Connected").count == 1
+    def self.connect_with(user, auth_token={})
+      return create_with(create_connection(auth_token), user, "Connected")
+    end
+
+    def self.create_with(request, user, method="Connected")
+      unless service = find_by_remote_id_and_method(request.id, method)
+        #attempts to look if some other user connected this same facebook account if its an authentication request
+        if where(remote_id: request.id, method: "Connected").count == 1 and method == "Authenticated"
           service = find_by_remote_id_and_method(request.id, "Connected")
         else
           service = new
           service.remote_id = request.id
-          #creates a user account even if the service fails to persist
-          service.user = User.create_with_facebook_request(request)
-          service.method = "Authenticated"
+          service.user = user
+          service.method = method
         end
       end
 
-      service.access_token = auth_token
+      service.access_token = {access_token: request.access_token}
       service.save
 
       return service
     end
 
-    def self.connect_with(user, auth_token={})
+    def self.create_connection(auth_token={})
       fb_user = FbGraph2::User.me(auth_token[:access_token])
-      request = fb_user.fetch
+      fb_user.fetch
 
-      unless service = find_by_remote_id_and_method(request.id, "Connected")
-        service = new
-        service.remote_id = request.id
-        service.user = user
-        service.method = "Connected"
-      end
-
-      service.access_token = auth_token
-      service.save
-
-      return service
+    rescue FbGraph2::Exception::InvalidToken => e
+      raise InvalidToken.new(e.message)
     end
 
     def friend_ids

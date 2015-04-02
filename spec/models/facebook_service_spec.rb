@@ -20,6 +20,16 @@ module SocialLogin
       end
     end
 
+    describe "exception raising" do
+      it "invalid token raises InvalidToken error" do
+        VCR.use_cassette('facebook_service/invalid_request') do
+          expect{
+            FacebookService.init_with({access_token: "343421"})
+            }.to raise_error InvalidToken
+        end
+      end
+    end
+
     describe "self.init_with" do
       before :each do
         #create an override method on user which gets called whenever

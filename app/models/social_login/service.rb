@@ -45,4 +45,7 @@ module SocialLogin
     end
 
   end
+
+  #exceptions
+  class InvalidToken < Exception ; end
 end
