@@ -27,8 +27,8 @@ module SocialLogin
 
     def self.create_connection(auth_token={})
       Twitter::REST::Client.new do |config|
-        config.consumer_key        = "MxzWRgtXC2CVc71azEnN9u2Df"
-        config.consumer_secret     = "QxNG8LukvzeAayj7igWazoUks9DtluNPn6D6Ej60bmu9z8uzM4"
+        config.consumer_key        = SocialLogin.twitter_consumer_key
+        config.consumer_secret     = SocialLogin.twitter_consumer_secret
         config.access_token        = auth_token[:access_token]
         config.access_token_secret = auth_token[:access_token_secret]
       end
