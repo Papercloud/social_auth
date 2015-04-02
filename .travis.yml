@@ -1,0 +1,10 @@
+addons:
+  postgresql: 9.3
+rvm:
+  - 2.1.2
+gemfile:
+
+  - gemfiles/rails42.gemfile
+script: "bundle exec rspec spec"
+bundler_args: '--no-deployment'
+
