@@ -11,12 +11,12 @@ module SocialLogin
     describe "social login methods" do
       it "receives init_with on authenticate" do
         expect(FacebookService).to receive(:init_with)
-        SocialLogin.authenticate("Facebook", "access_token")
+        SocialLogin.authenticate("Facebook", {access_token: "access_token"})
       end
 
       it "receives connect_with on connect" do
         expect(FacebookService).to receive(:connect_with)
-        SocialLogin.connect(@user, "Facebook", "access_token")
+        SocialLogin.connect(@user, "Facebook", {access_token: "access_token"})
       end
     end
 
@@ -47,7 +47,7 @@ module SocialLogin
       end
 
       it "returns service if remote_id and method is authenticated already exist" do
-        service = FacebookService.create(access_token: "34223", remote_id: "10204796229055532", user: @user, method: "Authenticated")
+        service = FacebookService.create(access_token: {access_token: "34223"}, remote_id: "10204796229055532", user: @user, method: "Authenticated")
         VCR.use_cassette('facebook_service/valid_request') do
           expect{
             expect(FacebookService.init_with(fb_access_token)).to eq service
@@ -56,7 +56,7 @@ module SocialLogin
       end
 
       it "returns service if no authenticate method exists however a single connected service does exist" do
-        service = FacebookService.create(access_token: "34223", remote_id: "10204796229055532", user: @user, method: "Connected")
+        service = FacebookService.create(access_token: {access_token: "34223"}, remote_id: "10204796229055532", user: @user, method: "Connected")
         VCR.use_cassette('facebook_service/valid_request') do
           expect{
             expect(FacebookService.init_with(fb_access_token)).to eq service
@@ -89,7 +89,7 @@ module SocialLogin
       end
 
       it "returns service if does exist" do
-        service = FacebookService.create(access_token: "34223", remote_id: "10204796229055532", user: @user, method: "Connected")
+        service = FacebookService.create(access_token: {access_token: "34223"}, remote_id: "10204796229055532", user: @user, method: "Connected")
         VCR.use_cassette('facebook_service/valid_request') do
           expect{
             expect(FacebookService.connect_with(@user, fb_access_token)).to eq service

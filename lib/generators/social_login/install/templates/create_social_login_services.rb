@@ -2,7 +2,7 @@ class CreateSocialLoginServices < ActiveRecord::Migration
   def change
     create_table :social_login_services do |t|
       t.string :type
-      t.text :access_token
+      t.json :access_token
       t.string :remote_id
       t.integer :user_id
       t.string :method

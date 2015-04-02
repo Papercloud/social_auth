@@ -4,9 +4,9 @@ module SocialLogin
   class FacebookService < Service
     FACEBOOK_CACHE = 2_592_000 # cache expiry in seconds
 
-    def self.init_with(auth_token)
+    def self.init_with(auth_token={})
       #creates facebook user if not found
-      fb_user = FbGraph2::User.me(auth_token)
+      fb_user = FbGraph2::User.me(auth_token[:access_token])
       request = fb_user.fetch
 
       unless service = find_by_remote_id_and_method(request.id, "Authenticated")
@@ -22,14 +22,14 @@ module SocialLogin
         end
       end
 
-      service.access_token = request.access_token
+      service.access_token = auth_token
       service.save
 
       return service
     end
 
-    def self.connect_with(user, auth_token)
-      fb_user = FbGraph2::User.me(auth_token)
+    def self.connect_with(user, auth_token={})
+      fb_user = FbGraph2::User.me(auth_token[:access_token])
       request = fb_user.fetch
 
       unless service = find_by_remote_id_and_method(request.id, "Connected")
@@ -39,7 +39,7 @@ module SocialLogin
         service.method = "Connected"
       end
 
-      service.access_token = request.access_token
+      service.access_token = auth_token
       service.save
 
       return service
@@ -49,7 +49,7 @@ module SocialLogin
       if redis_instance.exists(redis_key(:friends))
         friend_ids = redis_instance.smembers(redis_key(:friends))
       else
-        fb_user = FbGraph2::User.new('me').authenticate(access_token)
+        fb_user = FbGraph2::User.new('me').authenticate(access_token[:access_token])
         friend_ids = fb_user.friends.map(&:id)
         unless friend_ids.empty?
           redis_instance.del(redis_key(:friends))

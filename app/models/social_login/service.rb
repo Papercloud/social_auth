@@ -13,6 +13,14 @@ module SocialLogin
 
     ACCEPTED_METHODS = %w(Authenticated Connected)
 
+    def access_token
+      if super.blank?
+        {}
+      else
+        super.with_indifferent_access
+      end
+    end
+
     def self.init_with(auth_token)
       raise "need to override"
     end
