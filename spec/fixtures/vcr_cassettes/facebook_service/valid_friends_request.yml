@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.0/me/friends
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - FbGraph2 (0.5.0) (2.6.0.1, ruby 2.1.2 (2014-05-08))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 02 Apr 2015 03:07:43 GMT
+      Authorization:
+      - Bearer CAAVcHuFT94wBAGvsprjaxF4EuMZB25TgpX8dn9072c2hAs3NuZC8lHr2Urdat4SAlcGnCiy4OYINxTZC7MR4JseskNZB6ehV5KDAQ95dunynDqhZBSCKm2OTh940m0OgtomsFXTtycHU3QCctKo3DXLh8oFETkwgyiYAQYUxSLlGHORqRKGiaR6aZCYWrjWXdxJKuJDBp8ZAeMd9R9ZCB1bN
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fb-Rev:
+      - '1670980'
+      Etag:
+      - '"3f19a10c8250b39416225941c01e8ff40bd6c550"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.1
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      X-Fb-Debug:
+      - TwWojN2MSehP16jiYUaehEiJoVyAIs4Mjt2uLrxTPEtYVdXoE9qLZpXyrQCCXo13fEOtgzYGbVGVU0wYdkC92Q==
+      Date:
+      - Thu, 02 Apr 2015 03:07:43 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '879'
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"name":"Simon Francis Holland","id":"10152686335163670"},{"name":"Chris
+        Jewell","id":"10152750093832759"},{"name":"Sanjaya Rajapaksha","id":"10152870942691000"},{"name":"Isaac
+        Norman","id":"10152379354967336"},{"name":"Claire Taylor","id":"10152347407312231"},{"name":"Mark
+        Turner","id":"10152794894572040"},{"name":"Krystal Maria Fister","id":"10152374302856519"},{"name":"Tomas
+        Spacek","id":"10154592528930058"},{"name":"Ines Norman","id":"10203956551847542"},{"name":"Pawe\u0142
+        Siedlak","id":"10206029404079316"},{"name":"Christian Bieniak","id":"10204625017290823"},{"name":"Nyamka
+        Bayanmunkh","id":"1506778056227810"}],"paging":{"next":"https:\/\/graph.facebook.com\/v2.1\/10204796229055532\/friends?limit=5000&offset=5000&__after_id=enc_AdCtCfGF29dqN3wp1CHKI48ZCsPUfoclmQTTf9QadZBEFhLBQa9XhmcuyVBfZAVnhlAAq9aMFQwpPZBwmpruhYtjQXPb"},"summary":{"total_count":271}}'
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 03:07:43 GMT
+recorded_with: VCR 2.9.3

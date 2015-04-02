@@ -39,6 +39,8 @@ module SocialLogin
 
     rescue FbGraph2::Exception::InvalidToken => e
       raise InvalidToken.new(e.message)
+    rescue FbGraph2::Exception::BadRequest => e
+      raise BadRequest.new(e.message)
     end
 
     def friend_ids

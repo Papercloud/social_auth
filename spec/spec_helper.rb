@@ -30,7 +30,8 @@ require "fakeredis"
 
 ### SETUP VCR
 VCR.configure do |c|
-  c.cassette_library_dir = "#{Rails.root}/../../spec/fixtures/vcr_cassettes"
+  c.hook_into :webmock
+  c.cassette_library_dir = "#{Rails.root}/../../fixtures/vcr_cassettes"
   c.ignore_localhost = true
   c.allow_http_connections_when_no_cassette = false
 end
@@ -45,7 +46,7 @@ RSpec.configure do |config|
   end
 
   def fb_access_token
-    {access_token: "CAAVcHuFT94wBAA509NYoqiKeT5wHhj1rCEYYpOHlAvCy4gyc6UpaWpBdHuZAjT835eAVtbf4aJcv052CQQTT3qGmuDEiH2D5OUMxvIzIT5nfwDhJioJo8FnwaBicYXuTEiFZCJPyeWm81BjPkwgbM9HvPA1xj9GIThbd6EBmK88jvs6iMfYCi9n5CuTV959V23RXkdZB8weXZA7YHuQ6"}
+    {access_token: "CAAVcHuFT94wBAGvsprjaxF4EuMZB25TgpX8dn9072c2hAs3NuZC8lHr2Urdat4SAlcGnCiy4OYINxTZC7MR4JseskNZB6ehV5KDAQ95dunynDqhZBSCKm2OTh940m0OgtomsFXTtycHU3QCctKo3DXLh8oFETkwgyiYAQYUxSLlGHORqRKGiaR6aZCYWrjWXdxJKuJDBp8ZAeMd9R9ZCB1bN"}
   end
 
 end

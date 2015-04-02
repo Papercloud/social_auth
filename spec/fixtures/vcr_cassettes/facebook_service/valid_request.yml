@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.0/me
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - FbGraph2 (0.5.0) (2.6.0.1, ruby 2.1.2 (2014-05-08))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 02 Apr 2015 03:07:42 GMT
+      Authorization:
+      - Bearer CAAVcHuFT94wBAGvsprjaxF4EuMZB25TgpX8dn9072c2hAs3NuZC8lHr2Urdat4SAlcGnCiy4OYINxTZC7MR4JseskNZB6ehV5KDAQ95dunynDqhZBSCKm2OTh940m0OgtomsFXTtycHU3QCctKo3DXLh8oFETkwgyiYAQYUxSLlGHORqRKGiaR6aZCYWrjWXdxJKuJDBp8ZAeMd9R9ZCB1bN
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Last-Modified:
+      - '2014-09-07T02:44:02+0000'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fb-Rev:
+      - '1670980'
+      Etag:
+      - '"790556e690a8dccbbc708f58b0b1e2ebc2c2eedc"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.1
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      X-Fb-Debug:
+      - 7J8vdZ76Xm+mRdKlflnkbqZYSfd1tQ7uS0pGpe8s3cOPlYsOkoynXtAswUqVeJIKTi9X+dnkjBfGHJL8beAorw==
+      Date:
+      - Thu, 02 Apr 2015 03:07:43 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '416'
+    body:
+      encoding: UTF-8
+      string: '{"id":"10204796229055532","birthday":"07\/14\/1992","email":"dawilster143\u0040gmail.com","first_name":"William","gender":"male","last_name":"Porter","link":"https:\/\/www.facebook.com\/app_scoped_user_id\/10204796229055532\/","location":{"id":"116190411724975","name":"Melbourne,
+        Victoria, Australia"},"locale":"en_GB","name":"William Porter","timezone":11,"updated_time":"2014-09-07T02:44:02+0000","verified":true}'
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 03:07:43 GMT
+recorded_with: VCR 2.9.3
