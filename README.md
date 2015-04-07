@@ -35,13 +35,13 @@ Type | Token
 ###Usage
 **Authenticating**
 
-```
+```ruby
 SocialLogin.authenticate(type, auth_token)
 ```
 
 **Connecting a service**
 
-```
+```ruby
 SocialLogin.connect(user, type, auth_token)
 ```
 
@@ -50,7 +50,7 @@ SocialLogin.connect(user, type, auth_token)
 *Each time an authentication request needs to create a user it makes these callbacks to `User` which return a none persisted user. 
 (Example responses can be found in the VCR records or you can have a play around in specs but the typical payload returns everything you need to know about the user)* 
 
-```
+```ruby
 class User 
   def self.create_with_facebook_request(response)
     User.new(
