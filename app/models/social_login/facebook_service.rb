@@ -15,13 +15,13 @@ module SocialLogin
       )
     end
 
-    def self.connect_with(user, auth_token={})
+    def self.connect_with(user, auth_token={}, method="Connected")
       request = create_connection(auth_token)
 
       return create_with_request(
         request.id,
         user,
-        "Connected",
+        method,
         {access_token: request.access_token}
       )
     end

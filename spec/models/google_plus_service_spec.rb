@@ -26,7 +26,7 @@ module SocialLogin
         User.class_eval do
           has_many :services, inverse_of: :user, class_name: SocialLogin::Service
           def self.create_with_google_plus_request(request)
-            create
+            new
           end
         end
       end

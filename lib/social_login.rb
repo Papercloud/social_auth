@@ -27,14 +27,14 @@ module SocialLogin
     end
   end
 
-  def self.connect(user, type, auth_token)
+  def self.connect(user, type, auth_token, method="Connected")
     case type.camelize
     when "Facebook"
-      FacebookService.connect_with(user, auth_token)
+      FacebookService.connect_with(user, auth_token, method)
     when "Twitter"
-      TwitterService.connect_with(user, auth_token)
+      TwitterService.connect_with(user, auth_token, method)
     when "GooglePlus"
-      GooglePlusService.connect_with(user, auth_token)
+      GooglePlusService.connect_with(user, auth_token, method)
     end
   end
 end

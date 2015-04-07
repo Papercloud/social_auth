@@ -3,7 +3,7 @@ PATH
   specs:
     social_login (0.0.1)
       fb_graph2
-      google_plus
+      google_plus (~> 0.2.3)
       rails (~> 4.0)
       twitter
 

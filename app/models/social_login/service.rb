@@ -1,7 +1,7 @@
 module SocialLogin
   class Service < ActiveRecord::Base
     #validations
-    validates_presence_of :user_id, :access_token, :remote_id, :method
+    validates_presence_of :user, :access_token, :remote_id, :method
     validates_uniqueness_of :remote_id, scope: [:type], conditions: -> {where(method: 'Authenticated')}
     before_validation :validate_methods
 
@@ -30,6 +30,7 @@ module SocialLogin
     end
 
     def self.create_with_request(remote_id, user, method="Connected", access_token={})
+      remote_id = remote_id.to_s
       unless service = find_by_remote_id_and_method(remote_id, method)
         #attempts to look if some other user connected this same facebook account if its an authentication request
         if count = where(remote_id: remote_id, method: "Connected").count == 1 and method == "Authenticated"
@@ -37,6 +38,9 @@ module SocialLogin
         else
           service = new
           service.remote_id = remote_id
+
+          #gives the owner one last chance to perform some app level logic on the user before being created
+          user = user.validate_existing_user(remote_id, service.type) if user.respond_to?(:validate_existing_user)
           service.user = user
           service.method = method
         end
