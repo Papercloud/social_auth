@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.0/me
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - FbGraph2 (0.5.1) (2.6.0.1, ruby 2.1.2 (2014-05-08))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 07 Apr 2015 06:24:12 GMT
+      Authorization:
+      - Bearer CAAVcHuFT94wBACqJIiH64OTibli339UBWyOBZA4ya6ZC7mtJFVxPePxMiZCnN8junBThC1SkydIq6PsglkN18yxczHrQVf75QwyT60LRK24kOWzjwDe5KZC2RAx5ftui1PPmne4Mq3g08BrS5dRwxmoz9KbLQOa6mCjJNN5Y7IqIUeTWVOBm7DlLPcBclMTjeCZCVpZCzb6hcHC4LpA4MR
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Www-Authenticate:
+      - 'OAuth "Facebook Platform" "invalid_token" "Error validating access token:
+        Session has expired on Monday, 20-Oct-14 18:00:00 PDT. The current time is
+        Monday, 06-Apr-15 23:24:12 PDT."'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fb-Rev:
+      - '1677752'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      X-Fb-Debug:
+      - gA8tKoFoq0sKo61apyfSkjDo1XOe32v2vaeVf5z4ucGdSfUAULCy0Q1Y/pW71EbSDdWUv5pKrrpDhcpOmIMW/w==
+      Date:
+      - Tue, 07 Apr 2015 06:24:12 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '216'
+    body:
+      encoding: UTF-8
+      string: '{"error":{"message":"Error validating access token: Session has expired
+        on Monday, 20-Oct-14 18:00:00 PDT. The current time is Monday, 06-Apr-15 23:24:12
+        PDT.","type":"OAuthException","code":190,"error_subcode":463}}'
+    http_version: 
+  recorded_at: Tue, 07 Apr 2015 06:24:12 GMT
+recorded_with: VCR 2.9.3

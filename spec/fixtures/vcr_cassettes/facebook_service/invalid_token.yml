@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.0/me
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - FbGraph2 (0.5.1) (2.6.0.1, ruby 2.1.2 (2014-05-08))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 07 Apr 2015 06:22:32 GMT
+      Authorization:
+      - Bearer invalid_token
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Www-Authenticate:
+      - OAuth "Facebook Platform" "invalid_token" "Invalid OAuth access token."
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fb-Rev:
+      - '1677752'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      X-Fb-Debug:
+      - DqY3lGWAnBiUYHUiJTYZSaPXNbgH3tbh3WeKxuj8myZalxjFIUJs52VSKhVBDJGcU/5EhnHZW3j1hB0159tfAA==
+      Date:
+      - Tue, 07 Apr 2015 06:22:32 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '86'
+    body:
+      encoding: UTF-8
+      string: '{"error":{"message":"Invalid OAuth access token.","type":"OAuthException","code":190}}'
+    http_version: 
+  recorded_at: Tue, 07 Apr 2015 06:22:32 GMT
+recorded_with: VCR 2.9.3

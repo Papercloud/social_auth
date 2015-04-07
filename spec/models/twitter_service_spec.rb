@@ -57,6 +57,7 @@ module SocialLogin
           }.to_not raise_error
         end
       end
+
     end
 
     describe "self.connect_with" do

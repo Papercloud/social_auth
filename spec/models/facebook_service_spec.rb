@@ -66,6 +66,15 @@ module SocialLogin
           }.to_not raise_error
         end
       end
+
+      it "raises invalid token" do
+        VCR.use_cassette('facebook_service/invalid_token') do
+          expect{
+            FacebookService.create_connection({access_token: "invalid_token"})
+          }.to raise_error InvalidToken
+        end
+      end
+
     end
 
     describe "self.connect_with" do

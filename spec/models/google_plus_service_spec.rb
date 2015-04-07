@@ -56,6 +56,14 @@ module SocialLogin
           }.to change(GooglePlusService, :count).by(1)
         end
       end
+
+      it "invalid_token raises InvalidToken exception" do
+        VCR.use_cassette('google_plus_service/invalid_token') do
+          expect{
+            GooglePlusService.connect_with(@user, {access_token: "wrong"})
+          }.to raise_error InvalidToken
+        end
+      end
     end
 
     describe "create_connection" do

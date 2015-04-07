@@ -28,6 +28,8 @@ module SocialLogin
     def self.create_connection(auth_token={})
       GooglePlus.access_token = auth_token[:access_token]
       GooglePlus::Person.get('me')
+    rescue GooglePlus::RequestError => e
+      raise InvalidToken.new(e.message)
     end
   end
 end

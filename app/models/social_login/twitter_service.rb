@@ -12,6 +12,9 @@ module SocialLogin
         "Authenticated",
         {access_token: request.access_token, access_token_secret: request.access_token_secret}
       )
+
+    rescue Twitter::Error::Unauthorized => e
+      raise InvalidToken.new(e.message)
     end
 
     def self.connect_with(user, auth_token={})
@@ -23,6 +26,8 @@ module SocialLogin
         "Connected",
         {access_token: request.access_token, access_token_secret: request.access_token_secret}
       )
+    rescue Twitter::Error::Unauthorized => e
+      raise InvalidToken.new(e.message)
     end
 
     def self.create_connection(auth_token={})
