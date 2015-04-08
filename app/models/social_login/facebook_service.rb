@@ -2,7 +2,6 @@ require 'fb_graph2'
 
 module SocialLogin
   class FacebookService < Service
-    FACEBOOK_CACHE = 2_592_000 # cache expiry in seconds
 
     def self.init_with(auth_token={})
       request = create_connection(auth_token)
@@ -40,12 +39,11 @@ module SocialLogin
       if redis_instance.exists(redis_key(:friends))
         friend_ids = redis_instance.smembers(redis_key(:friends))
       else
-        fb_user = FbGraph2::User.new('me').authenticate(access_token[:access_token])
-        friend_ids = fb_user.friends.map(&:id)
+        friend_ids = self.class.create_connection(access_token).friends.map(&:id)
         unless friend_ids.empty?
           redis_instance.del(redis_key(:friends))
           redis_instance.sadd(redis_key(:friends), friend_ids)
-          redis_instance.expire(redis_key(:friends), FACEBOOK_CACHE)
+          redis_instance.expire(redis_key(:friends), REDIS_CACHE)
         end
       end
       friend_ids

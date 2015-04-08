@@ -7,6 +7,7 @@ module SocialLogin
       #have since been revoked so use vcr recordsk
       SocialLogin.twitter_consumer_key = "MxzWRgtXC2CVc71azEnN9u2Df"
       SocialLogin.twitter_consumer_secret = "QxNG8LukvzeAayj7igWazoUks9DtluNPn6D6Ej60bmu9z8uzM4"
+      allow_any_instance_of(TwitterService).to receive(:redis_instance).and_return(Redis.new)
     end
 
     describe "social login methods" do
@@ -66,6 +67,20 @@ module SocialLogin
           expect{
             TwitterService.connect_with(@user, twitter_access_token)
           }.to change(TwitterService, :count).by(1)
+        end
+      end
+    end
+
+    describe "friend_ids" do
+      before :each do
+        @service = TwitterService.create(access_token: twitter_access_token, remote_id: "410739240", user: @user, method: "Authenticated")
+      end
+
+      it "returns friend_ids" do
+        VCR.use_cassette("twitter_service/valid_friends_request") do
+          expect{
+            expect(@service.friend_ids).to_not be_empty
+          }.to_not raise_error
         end
       end
     end

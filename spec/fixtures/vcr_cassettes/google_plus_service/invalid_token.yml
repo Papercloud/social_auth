@@ -30,9 +30,9 @@ http_interactions:
       Content-Encoding:
       - gzip
       Date:
-      - Tue, 07 Apr 2015 06:38:57 GMT
+      - Wed, 08 Apr 2015 01:17:18 GMT
       Expires:
-      - Tue, 07 Apr 2015 06:38:57 GMT
+      - Wed, 08 Apr 2015 01:17:18 GMT
       Cache-Control:
       - private, max-age=0
       X-Content-Type-Options:
@@ -55,5 +55,5 @@ http_interactions:
         jMJh1xkFiplRUstFe8ys8fp+rqWRMJD98MZO7U6NP5uvdwe9hlY+7g///mtd
         ADsWGJ+9AAAA
     http_version: 
-  recorded_at: Tue, 07 Apr 2015 06:38:57 GMT
+  recorded_at: Wed, 08 Apr 2015 01:17:19 GMT
 recorded_with: VCR 2.9.3

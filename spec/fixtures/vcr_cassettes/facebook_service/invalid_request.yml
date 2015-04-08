@@ -8,11 +8,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - FbGraph2 (0.5.0) (2.6.0.1, ruby 2.1.2 (2014-05-08))
+      - FbGraph2 (0.5.1) (2.6.0.1, ruby 2.1.2 (2014-05-08))
       Accept:
       - "*/*"
       Date:
-      - Thu, 02 Apr 2015 03:07:42 GMT
+      - Wed, 08 Apr 2015 01:29:03 GMT
       Authorization:
       - Bearer 343421
   response:
@@ -27,7 +27,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Fb-Rev:
-      - '1670980'
+      - '1679713'
       Pragma:
       - no-cache
       Cache-Control:
@@ -35,9 +35,9 @@ http_interactions:
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       X-Fb-Debug:
-      - J9xZRb27rqZU5omPqvXKtR5GyO1Fg9exUsQ8XlDQDDtXqWqdzFOsCytZAvcuWVU8lyYSylItQaxvI+pgKAhSjw==
+      - z+FlNZvmursocMFEdaB3G9Ub9E4tkIu4VxlsjhKWr6aymbiIj7rwOKNvyhGOy3YxqBNvqzhmhNVFg2mu3qi93w==
       Date:
-      - Thu, 02 Apr 2015 03:07:42 GMT
+      - Wed, 08 Apr 2015 01:29:02 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -46,5 +46,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":{"message":"Invalid OAuth access token.","type":"OAuthException","code":190}}'
     http_version: 
-  recorded_at: Thu, 02 Apr 2015 03:07:42 GMT
+  recorded_at: Wed, 08 Apr 2015 01:29:03 GMT
 recorded_with: VCR 2.9.3

@@ -26,6 +26,7 @@ module SocialLogin
         "Connected",
         {access_token: request.access_token, access_token_secret: request.access_token_secret}
       )
+
     rescue Twitter::Error::Unauthorized => e
       raise InvalidToken.new(e.message)
     end
@@ -37,6 +38,20 @@ module SocialLogin
         config.access_token        = auth_token[:access_token]
         config.access_token_secret = auth_token[:access_token_secret]
       end
+    end
+
+    def friend_ids
+      if redis_instance.exists(redis_key(:friends))
+        friend_ids = redis_instance.smembers(redis_key(:friends))
+      else
+        friend_ids = self.class.create_connection(access_token).friend_ids.to_hash[:ids]
+        unless friend_ids.empty?
+          redis_instance.del(redis_key(:friends))
+          redis_instance.sadd(redis_key(:friends), friend_ids)
+          redis_instance.expire(redis_key(:friends), REDIS_CACHE)
+        end
+      end
+      friend_ids
     end
 
   end

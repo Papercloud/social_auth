@@ -12,6 +12,7 @@ module SocialLogin
     self.table_name = "social_login_services"
 
     ACCEPTED_METHODS = %w(Authenticated Connected)
+    REDIS_CACHE = 2_592_000 # cache expiry in seconds
 
     def access_token
       if super.blank?

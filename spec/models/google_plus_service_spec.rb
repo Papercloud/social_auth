@@ -5,6 +5,7 @@ module SocialLogin
   describe GooglePlusService do
     before :each do
       @user = User.create(email: "email@address.com")
+      allow_any_instance_of(GooglePlusService).to receive(:redis_instance).and_return(Redis.new)
     end
 
     describe "social login methods" do
@@ -47,7 +48,6 @@ module SocialLogin
       end
     end
 
-
     describe "self.connect_with" do
       it "creates service if doesn't exist" do
         VCR.use_cassette('google_plus_service/valid_request') do
@@ -71,6 +71,20 @@ module SocialLogin
         VCR.use_cassette('google_plus_service/valid_request') do
           expect{
             GooglePlusService.create_connection(google_plus_access_token)
+          }.to_not raise_error
+        end
+      end
+    end
+
+    describe "friend_ids" do
+      before :each do
+        @service = GooglePlusService.create(access_token: google_plus_access_token, remote_id: "410739240", user: @user, method: "Authenticated")
+      end
+
+      it "returns friend_ids" do
+        VCR.use_cassette("google_plus_service/valid_friends_request") do
+          expect{
+            expect(@service.friend_ids).to_not be_empty
           }.to_not raise_error
         end
       end

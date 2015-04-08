@@ -1,0 +1,80 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/plus/v1/people/me/people/visible?pp=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth ya29.TwE-Usj1SWrqLIQMUxzJy9-3y5pQoTY9Ar7RgJTAPMSNxYBO3fN3xH9SPfvbL2gDrc7jFC5iEJ8Zhg
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Wed, 08 Apr 2015 01:23:41 GMT
+      Date:
+      - Wed, 08 Apr 2015 01:23:41 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"RqKWnRU4WW46-6W3rWhLR9iFZQM/hG0wRUwF_oCqQg70YRLgDUY3P7U"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '9679'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.5
+    body:
+      encoding: UTF-8
+      string: '{"kind":"plus#peopleFeed","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/hG0wRUwF_oCqQg70YRLgDUY3P7U\"","title":"Google+
+        List of Visible People","totalItems":28,"items":[{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/d7NQ3JXwC1XDzNlKKWonA-tjoTA\"","objectType":"page","id":"108967384991768947849","displayName":"Android
+        Developers","url":"https://plus.google.com/+AndroidDevelopers","image":{"url":"https://lh3.googleusercontent.com/-mGTYed3Uh-E/AAAAAAAAAAI/AAAAAAAAF58/qNYbk4mMhI0/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/jcSsLNMACI_t4zTq0qjpm5Na6Tc\"","objectType":"person","id":"109247837517983808140","displayName":"Caroline
+        Gordon","url":"https://plus.google.com/+CarolineGordon","image":{"url":"https://lh5.googleusercontent.com/-baIlIfA1OCQ/AAAAAAAAAAI/AAAAAAABYrE/qQa5SMiU1Oo/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/avFGrn4y9IqPZjECuW-TZEgR1Is\"","objectType":"person","id":"109003087873919869488","displayName":"Chris
+        Joannou","url":"https://plus.google.com/+ChrisJoannouPerceptar","image":{"url":"https://lh3.googleusercontent.com/-rEXQhfJJyi0/AAAAAAAAAAI/AAAAAAAAAWo/k4l3fKPg6RA/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/yqN6c65jhcYafBGzUmri4t32cbA\"","objectType":"person","id":"107228678498302967616","displayName":"Christian
+        Bieniak","url":"https://plus.google.com/107228678498302967616","image":{"url":"https://lh3.googleusercontent.com/-Nw-eksbnWOA/AAAAAAAAAAI/AAAAAAAAAFs/0Vt6H3WKnqY/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/BaUYxddDLfmHPkaVkqJD97Kt5zc\"","objectType":"person","id":"112014823271938724039","displayName":"Chuck
+        Lee","url":"https://plus.google.com/112014823271938724039","image":{"url":"https://lh6.googleusercontent.com/-VVa1a9-SHog/AAAAAAAAAAI/AAAAAAAAASQ/x1bHxerXN5Y/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/5ZkFt-iEXI7HPM9aABqjEN0PzmQ\"","objectType":"person","id":"117466857088089804570","displayName":"Claire
+        Taylor","url":"https://plus.google.com/117466857088089804570","image":{"url":"https://lh4.googleusercontent.com/-iNhTSYTIGb8/AAAAAAAAAAI/AAAAAAAAACE/SN_BM2sl23o/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/12H-kpPrzHs06_EvgifDbzJaSxU\"","objectType":"person","id":"114489004653456082861","displayName":"David
+        Hong","url":"https://plus.google.com/114489004653456082861","image":{"url":"https://lh3.googleusercontent.com/-_0L5t56OQpo/AAAAAAAAAAI/AAAAAAAAAAA/KN6K5ekqZ9E/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/Jw8CSUleAFWXKeoLWmfhtufzq3k\"","objectType":"person","id":"105556815671824877659","displayName":"Diesel
+        Laws","url":"","image":{"url":"https://lh4.googleusercontent.com/-rugVMqEhiJQ/AAAAAAAAAAI/AAAAAAAAAFA/EU0XZ8eFGdE/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/cNbiql96n10VZ1l84-YkixS5G9Q\"","objectType":"person","id":"103522863756366447365","displayName":"Elliot
+        Schoemaker","url":"https://plus.google.com/+ElliotSchoemaker","image":{"url":"https://lh6.googleusercontent.com/-LHDxw1VdyMg/AAAAAAAAAAI/AAAAAAAAAbo/TWfIV0dsHbs/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/qVRNP5RcEpvHZl2R4WSND-iRXfo\"","objectType":"person","id":"103576151431103760625","displayName":"Emily
+        Gray","url":"https://plus.google.com/103576151431103760625","image":{"url":"https://lh5.googleusercontent.com/-Lrkqac2dfD4/AAAAAAAAAAI/AAAAAAAAETs/BzP7nieP1vU/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/7SfeQZcZ4DJa4z7YS3I3rNgcqGo\"","objectType":"person","id":"114182148907902308191","displayName":"Eric
+        Villiers","url":"https://plus.google.com/114182148907902308191","image":{"url":"https://lh6.googleusercontent.com/-uX_xcUSFi4Y/AAAAAAAAAAI/AAAAAAAALbw/NYXGlBJr7S0/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/oxPBzebDKUrSLyjFOl8tdS2JWBs\"","objectType":"person","id":"111689821287602421501","displayName":"Ines
+        Norman","url":"https://plus.google.com/111689821287602421501","image":{"url":"https://lh5.googleusercontent.com/-hSvCDd_tFyU/AAAAAAAAAAI/AAAAAAAAABw/Ffbrtvvq9GA/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/T9KE01uTIeukAHE_y4ye77ZbxiY\"","objectType":"person","id":"103716847685048716973","displayName":"Jason
+        Calacanis","url":"https://plus.google.com/+JasonCalacanis","image":{"url":"https://lh6.googleusercontent.com/-YAqt-oZANCs/AAAAAAAAAAI/AAAAAAAAOZc/Cy7n74sO0TM/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/VZkHB0VdsNBNVt8OKpHwdrACfzk\"","objectType":"person","id":"103366684525686430458","displayName":"Kate
+        Kendall","url":"https://plus.google.com/+KateKendall","image":{"url":"https://lh4.googleusercontent.com/-fPh2ANHQ7jw/AAAAAAAAAAI/AAAAAAAABTA/thRWxNr4Yo0/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/IRmnGqmmFqp04FlkBX7TMXnDCjg\"","objectType":"person","id":"109747182379581027032","displayName":"Kim
+        Chandler McDonald","url":"https://plus.google.com/+KimChandlerMcDonald","image":{"url":"https://lh5.googleusercontent.com/-VU_uluPIaoI/AAAAAAAAAAI/AAAAAAAABtE/sGvIgIbY7R4/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/8LcTvvy-5evCnixAHzdk3UDCuAI\"","objectType":"person","id":"107011484436237737598","displayName":"Krystal
+        Fister","url":"https://plus.google.com/107011484436237737598","image":{"url":"https://lh3.googleusercontent.com/-sCthZcZGU20/AAAAAAAAAAI/AAAAAAAAABU/yC9ZRIO7fUg/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/MrCNe1qu6y69xAsX6DAo9NMDV4E\"","objectType":"person","id":"115834112437459315794","displayName":"Lee
+        Murray","url":"https://plus.google.com/115834112437459315794","image":{"url":"https://lh5.googleusercontent.com/-VpP6hOtecF4/AAAAAAAAAAI/AAAAAAAAAF0/UtfM8Gya9RY/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/HQ7YbtXsw3p6tpu8l6-bO-WrImk\"","objectType":"person","id":"110720713172606406654","displayName":"Marie
+        Green","url":"https://plus.google.com/110720713172606406654","image":{"url":"https://lh4.googleusercontent.com/-3SW9wsX1at0/AAAAAAAAAAI/AAAAAAAAAFI/HetKnvYRJUY/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/fiMWDXJOikn-V4qXNFLzjr1nvuU\"","objectType":"person","id":"109940379358971428473","displayName":"Matt
+        Dickinson","url":"https://plus.google.com/+MattDickinsonOz","image":{"url":"https://lh4.googleusercontent.com/-TkujVrwBLqo/AAAAAAAAAAI/AAAAAAAAAGU/11IHxQNiTUQ/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/IO0HWRAh9UXYm_oFYEhHikTTl1I\"","objectType":"person","id":"115273383316353419669","displayName":"Matt
+        Hooper","url":"https://plus.google.com/115273383316353419669","image":{"url":"https://lh4.googleusercontent.com/-LCJGt10-wEc/AAAAAAAAAAI/AAAAAAAAFWM/blGEIDuwLUw/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/v59omRCUUZ0SaY9JY_xuTw-Zs7s\"","objectType":"person","id":"102401915173210828528","displayName":"Michel
+        Triana","url":"https://plus.google.com/+MichelTriana","image":{"url":"https://lh4.googleusercontent.com/-PjzxXN2UVoY/AAAAAAAAAAI/AAAAAAABitk/idczeYQf2-I/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/G79G5As5TYIJdj3iWhCZEb_u0tM\"","objectType":"person","id":"109455776680880250188","displayName":"Morgan
+        Williams","url":"https://plus.google.com/+MorganWilliams2","image":{"url":"https://lh4.googleusercontent.com/-b8-DlEGPbjw/AAAAAAAAAAI/AAAAAAAAjc0/O4RREYhsWqQ/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/cHo941w_E18qb6pppwuM2D6rXvw\"","objectType":"person","id":"109706891197945188963","displayName":"Nigel
+        Sheridan-Smith","url":"https://plus.google.com/109706891197945188963","image":{"url":"https://lh4.googleusercontent.com/-XnIKbzee81I/AAAAAAAAAAI/AAAAAAAAAI4/wnnIl-b8wgA/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/utPR7VBCUsBzcz7qRQoBIgxSdHs\"","objectType":"page","id":"103037366582313115962","displayName":"TechCrunch","url":"https://plus.google.com/+TechCrunch","image":{"url":"https://lh4.googleusercontent.com/-NoG7o5O9YIY/AAAAAAAAAAI/AAAAAAABZH0/eljvzByyWrk/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/__TeWhNxMI6pHFqA8VHKZZJY-u4\"","objectType":"person","id":"115298957275830303452","displayName":"Varun
+        Prakash","url":"https://plus.google.com/115298957275830303452","image":{"url":"https://lh4.googleusercontent.com/-vDaNmmXBOPI/AAAAAAAAAAI/AAAAAAAADKs/4DeYEFvzkME/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/0QUjRMF1Q48P8hTkYaoS3oQbrdw\"","objectType":"person","id":"114632963976925724433","displayName":"Vitor
+        Ferreira","url":"https://plus.google.com/+VitorFerreiraPhoto","image":{"url":"https://lh5.googleusercontent.com/-X0fc3sMkSaI/AAAAAAAAAAI/AAAAAAAAO8I/2Zpajbw0jio/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/8iznnXCGJeUEknXH9V6FgrYbsfY\"","objectType":"person","id":"102842160332523670973","displayName":"Will
+        Kiddle","url":"https://plus.google.com/+WillKiddle","image":{"url":"https://lh4.googleusercontent.com/-scNP416E5X0/AAAAAAAAAAI/AAAAAAAABms/rgOOY_haj00/photo.jpg?sz=50"}},{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/LsajDVe9J5hqyG_tvsWHIE61BqI\"","objectType":"page","id":"100598160817214911030","displayName":"node.js","url":"https://plus.google.com/100598160817214911030","image":{"url":"https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAABc/UgMV3LM9CdU/photo.jpg?sz=50"}}]}'
+    http_version: 
+  recorded_at: Wed, 08 Apr 2015 01:23:41 GMT
+recorded_with: VCR 2.9.3

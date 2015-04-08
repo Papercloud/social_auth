@@ -2,19 +2,71 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.0/me/friends
+    uri: https://graph.facebook.com/v2.0/me
     body:
       encoding: UTF-8
       string: ''
     headers:
       User-Agent:
-      - FbGraph2 (0.5.0) (2.6.0.1, ruby 2.1.2 (2014-05-08))
+      - FbGraph2 (0.5.1) (2.6.0.1, ruby 2.1.2 (2014-05-08))
       Accept:
       - "*/*"
       Date:
-      - Thu, 02 Apr 2015 03:07:43 GMT
+      - Wed, 08 Apr 2015 01:28:56 GMT
       Authorization:
-      - Bearer CAAVcHuFT94wBAGvsprjaxF4EuMZB25TgpX8dn9072c2hAs3NuZC8lHr2Urdat4SAlcGnCiy4OYINxTZC7MR4JseskNZB6ehV5KDAQ95dunynDqhZBSCKm2OTh940m0OgtomsFXTtycHU3QCctKo3DXLh8oFETkwgyiYAQYUxSLlGHORqRKGiaR6aZCYWrjWXdxJKuJDBp8ZAeMd9R9ZCB1bN
+      - Bearer CAAVcHuFT94wBABZCLk1HBB9OY6jdgwIwuOGcfBoY0srXB9Fh535odH9Y2SwHfZC7H8lHovvy8Wt9NZBx8IsieNiCZAZB5uptn9q2MxytBD93IDo3Kf0ZCmaiIAZAvCBfG9h18jKfp091uE5c6aXZB4sLyOkCWvO4O5CYgItX4G3eWoAqmnUinoZCQfzT629GQNU0ZBAUQ0AckiXh09xY0fnkhw
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Last-Modified:
+      - '2014-09-07T02:44:02+0000'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fb-Rev:
+      - '1679713'
+      Etag:
+      - '"4eca256d84fba296f52c4a5adaaf423b186698d5"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.1
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      X-Fb-Debug:
+      - E00ejINNSKoIScm6KMX3ovtnl8h7goXmDMwcetJMN/Cq8v3NHRSe8UdcrYoTNnn8Nz2JgpaaqbfkiDcQ0yCLiw==
+      Date:
+      - Wed, 08 Apr 2015 01:28:56 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '416'
+    body:
+      encoding: UTF-8
+      string: '{"id":"10204796229055532","birthday":"07\/14\/1992","email":"dawilster143\u0040gmail.com","first_name":"William","gender":"male","last_name":"Porter","link":"https:\/\/www.facebook.com\/app_scoped_user_id\/10204796229055532\/","location":{"id":"116190411724975","name":"Melbourne,
+        Victoria, Australia"},"locale":"en_GB","name":"William Porter","timezone":10,"updated_time":"2014-09-07T02:44:02+0000","verified":true}'
+    http_version: 
+  recorded_at: Wed, 08 Apr 2015 01:28:57 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.0/10204796229055532/friends
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - FbGraph2 (0.5.1) (2.6.0.1, ruby 2.1.2 (2014-05-08))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 08 Apr 2015 01:28:57 GMT
+      Authorization:
+      - Bearer CAAVcHuFT94wBABZCLk1HBB9OY6jdgwIwuOGcfBoY0srXB9Fh535odH9Y2SwHfZC7H8lHovvy8Wt9NZBx8IsieNiCZAZB5uptn9q2MxytBD93IDo3Kf0ZCmaiIAZAvCBfG9h18jKfp091uE5c6aXZB4sLyOkCWvO4O5CYgItX4G3eWoAqmnUinoZCQfzT629GQNU0ZBAUQ0AckiXh09xY0fnkhw
   response:
     status:
       code: 200
@@ -25,9 +77,9 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Fb-Rev:
-      - '1670980'
+      - '1679713'
       Etag:
-      - '"3f19a10c8250b39416225941c01e8ff40bd6c550"'
+      - '"7889afa3d1a2afb196944917df7e2a469c55997c"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -37,9 +89,9 @@ http_interactions:
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       X-Fb-Debug:
-      - TwWojN2MSehP16jiYUaehEiJoVyAIs4Mjt2uLrxTPEtYVdXoE9qLZpXyrQCCXo13fEOtgzYGbVGVU0wYdkC92Q==
+      - 8d1VS1G2x+FGgM5zNvpvB9/aL6/efGQcit5garZwvhQ1xjZBp4jDhdk5QGlMokyixlNAjI187IJdo5eIGQMdsg==
       Date:
-      - Thu, 02 Apr 2015 03:07:43 GMT
+      - Wed, 08 Apr 2015 01:28:57 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -52,7 +104,7 @@ http_interactions:
         Turner","id":"10152794894572040"},{"name":"Krystal Maria Fister","id":"10152374302856519"},{"name":"Tomas
         Spacek","id":"10154592528930058"},{"name":"Ines Norman","id":"10203956551847542"},{"name":"Pawe\u0142
         Siedlak","id":"10206029404079316"},{"name":"Christian Bieniak","id":"10204625017290823"},{"name":"Nyamka
-        Bayanmunkh","id":"1506778056227810"}],"paging":{"next":"https:\/\/graph.facebook.com\/v2.1\/10204796229055532\/friends?limit=5000&offset=5000&__after_id=enc_AdCtCfGF29dqN3wp1CHKI48ZCsPUfoclmQTTf9QadZBEFhLBQa9XhmcuyVBfZAVnhlAAq9aMFQwpPZBwmpruhYtjQXPb"},"summary":{"total_count":271}}'
+        Bayanmunkh","id":"1506778056227810"}],"paging":{"next":"https:\/\/graph.facebook.com\/v2.1\/10204796229055532\/friends?limit=5000&offset=5000&__after_id=enc_AdCtCfGF29dqN3wp1CHKI48ZCsPUfoclmQTTf9QadZBEFhLBQa9XhmcuyVBfZAVnhlAAq9aMFQwpPZBwmpruhYtjQXPb"},"summary":{"total_count":269}}'
     http_version: 
-  recorded_at: Thu, 02 Apr 2015 03:07:43 GMT
+  recorded_at: Wed, 08 Apr 2015 01:28:57 GMT
 recorded_with: VCR 2.9.3
