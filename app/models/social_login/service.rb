@@ -11,6 +11,9 @@ module SocialLogin
     #settings
     self.table_name = "social_login_services"
 
+    #callbacks
+    after_create :append_to_associated_services
+
     ACCEPTED_METHODS = %w(Authenticated Connected)
     REDIS_CACHE = 2_592_000 # cache expiry in seconds
 
@@ -51,6 +54,30 @@ module SocialLogin
       service.save
 
       return service
+    end
+
+    def services
+      self.class.where('remote_id IN (?) and type = ?', friend_ids, type)
+    end
+
+    def append_to_associated_services
+      services.each do |service|
+        service.append_to_friends_list(remote_id)
+      end
+    end
+
+    def append_to_friends_list(remote_id)
+      if redis_instance.exists(self.redis_key(:friends))
+        redis_instance.sadd(self.redis_key(:friends), remote_id)
+      end
+    end
+
+    def friend_ids
+      if redis_instance.exists(redis_key(:friends))
+        friend_ids = redis_instance.smembers(redis_key(:friends))
+      else
+        []
+      end
     end
 
     # helper method to generate redis keys

@@ -5,6 +5,8 @@ module SocialLogin
   describe Service do
     before :each do
       @user = User.create(email: "email@address.com")
+      @redis_server = Redis.new
+      allow_any_instance_of(Service).to receive(:redis_instance).and_return(@redis_server)
     end
 
     #service factories
@@ -15,6 +17,46 @@ module SocialLogin
     it "has valid factory" do
       service = valid_service(User.create())
       expect(service).to be_valid
+    end
+
+    describe "associated_services" do
+      it "includes service with whom your friends with" do
+        service = Service.create(access_token: {fake: "fake"}, remote_id: "2", user: User.create, method: "Authenticated")
+        expect(service).to receive(:friend_ids).and_return(["1234"])
+
+        another_service = Service.create(access_token: {fake: "fake"}, remote_id: "1234", user: User.create, method: "Authenticated")
+        expect(service.services).to include another_service
+      end
+
+      it "doesn't return service your not friends with" do
+        service = Service.create(access_token: {fake: "fake"}, remote_id: "2", user: User.create, method: "Authenticated")
+        expect(service).to receive(:friend_ids).and_return(["324"])
+
+        another_service = Service.create(access_token: {fake: "fake"}, remote_id: "1234", user: User.create, method: "Authenticated")
+        expect(service.services).to_not include another_service
+      end
+    end
+
+    describe "append to friends list" do
+
+      it "append to associate_services gets called on create" do
+        expect_any_instance_of(Service).to receive(:append_to_associated_services).once
+        service = Service.create(access_token: {fake: "fake"}, remote_id: "2", user: User.create, method: "Authenticated")
+      end
+
+      it "on create append remote_id to related services" do
+        service = Service.create(access_token: {fake: "fake"}, remote_id: "2", user: User.create, method: "Authenticated")
+        @redis_server.sadd(service.redis_key(:friends), ["10", "11"])
+
+        expect(service.friend_ids.count).to eq 2
+
+        another_service = Service.create(access_token: {fake: "fake"}, remote_id: "15", user: User.create, method: "Authenticated")
+        @redis_server.sadd(another_service.redis_key(:friends), ["2"])
+
+        another_service.append_to_associated_services
+
+        expect(service.friend_ids.count).to eq 3
+      end
     end
 
     describe "validations" do
@@ -28,14 +70,14 @@ module SocialLogin
       end
 
       it "cannot have multiple authenticate services with same remote_id" do
-        service = FacebookService.create(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Authenticated")
-        another_service = FacebookService.new(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Authenticated")
+        service = Service.create(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Authenticated")
+        another_service = Service.new(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Authenticated")
         expect(another_service).to_not be_valid
       end
 
       it "can have multiple connected services with same remote_id" do
-        service = FacebookService.create(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Connected")
-        another_service = FacebookService.new(access_token: {access_token: "fdf"},remote_id: "34343", user: @user, method: "Connected")
+        service = Service.create(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Connected")
+        another_service = Service.new(access_token: {access_token: "fdf"},remote_id: "34343", user: @user, method: "Connected")
         expect(another_service).to be_valid
       end
     end

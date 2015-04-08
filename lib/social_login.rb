@@ -1,6 +1,9 @@
 require "social_login/engine"
 
 module SocialLogin
+  extend ActiveSupport::Autoload
+
+  autoload :ActsAsSocialUser, 'social_login/acts_as_social_user'
 
   mattr_accessor :redis_instance_method
   @@redis_instance_method = nil
@@ -36,5 +39,11 @@ module SocialLogin
     when "GooglePlus"
       GooglePlusService.connect_with(user, auth_token, method)
     end
+  end
+end
+
+module ActiveRecord
+  class Base
+    include SocialLogin::ActsAsSocialUser
   end
 end

@@ -47,7 +47,7 @@ module SocialLogin
         friend_ids = self.class.create_connection(access_token).friend_ids.to_hash[:ids]
         unless friend_ids.empty?
           redis_instance.del(redis_key(:friends))
-          redis_instance.sadd(redis_key(:friends), friend_ids)
+          redis_instance.sadd(redis_key(:friends), friend_ids.to_s)
           redis_instance.expire(redis_key(:friends), REDIS_CACHE)
         end
       end

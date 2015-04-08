@@ -12,9 +12,9 @@ http_interactions:
       User-Agent:
       - TwitterRubyGem/5.14.0
       Authorization:
-      - OAuth oauth_consumer_key="MxzWRgtXC2CVc71azEnN9u2Df", oauth_nonce="20190b8132cb1975dbb51741cfba9124",
-        oauth_signature="%2Bhqz%2BrXNYo%2BcUKiuI9TGoP4mAkY%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1428455046", oauth_token="410739240-pHPJnKJsQufXJXrH2j2gmhWx923Y4O3b1ziOZ3gi",
+      - OAuth oauth_consumer_key="MxzWRgtXC2CVc71azEnN9u2Df", oauth_nonce="abbf6ef7f2eead07e985da70278eeea1",
+        oauth_signature="sIDVimOb%2BaE2DrKgCt%2BpFKwkI8w%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1428466986", oauth_token="410739240-pHPJnKJsQufXJXrH2j2gmhWx923Y4O3b1ziOZ3gi",
         oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -32,18 +32,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Wed, 08 Apr 2015 01:04:07 GMT
+      - Wed, 08 Apr 2015 04:23:06 GMT
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Wed, 08 Apr 2015 01:04:07 GMT
+      - Wed, 08 Apr 2015 04:23:06 GMT
       Pragma:
       - no-cache
       Server:
       - tsa_a
       Set-Cookie:
-      - guest_id=v1%3A142845504737628915; Domain=.twitter.com; Path=/; Expires=Fri,
-        07-Apr-2017 01:04:07 UTC
+      - guest_id=v1%3A142846698683187729; Domain=.twitter.com; Path=/; Expires=Fri,
+        07-Apr-2017 04:23:06 UTC
       - lang=en
       Status:
       - 200 OK
@@ -52,7 +52,7 @@ http_interactions:
       X-Access-Level:
       - read-write
       X-Connection-Hash:
-      - edd302fa0d74132e79ffba548893d7ba
+      - 42e8701fd40b3167002079e848d80747
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -60,13 +60,13 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '15'
       X-Rate-Limit-Remaining:
-      - '13'
+      - '11'
       X-Rate-Limit-Reset:
-      - '1428455343'
+      - '1428467622'
       X-Response-Time:
-      - '83'
+      - '103'
       X-Transaction:
-      - 42be2a515333db53
+      - 405f12fbaca5f9ae
       X-Twitter-Response-Tags:
       - BouncerCompliant
       - BouncerExempt
@@ -79,7 +79,7 @@ http_interactions:
         computer science major at RMIT and software developer at Papercloud","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":232,"friends_count":404,"listed_count":22,"created_at":"Sat
         Nov 12 14:09:45 +0000 2011","favourites_count":38,"utc_offset":36000,"time_zone":"Melbourne","geo_enabled":false,"verified":false,"statuses_count":163,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/2421220373\/u8kjwo6me39pos7nolzj_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/2421220373\/u8kjwo6me39pos7nolzj_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":true,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false}'
     http_version: 
-  recorded_at: Wed, 08 Apr 2015 01:04:07 GMT
+  recorded_at: Wed, 08 Apr 2015 04:23:07 GMT
 - request:
     method: get
     uri: https://api.twitter.com/1.1/friends/ids.json?cursor=-1&user_id=410739240
@@ -92,9 +92,9 @@ http_interactions:
       User-Agent:
       - TwitterRubyGem/5.14.0
       Authorization:
-      - OAuth oauth_consumer_key="MxzWRgtXC2CVc71azEnN9u2Df", oauth_nonce="d242e5f600ff5ea03eb64d7c9e476ed2",
-        oauth_signature="Ov14TQuYA9Vl54TOi4pqyTh2HeI%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1428455047", oauth_token="410739240-pHPJnKJsQufXJXrH2j2gmhWx923Y4O3b1ziOZ3gi",
+      - OAuth oauth_consumer_key="MxzWRgtXC2CVc71azEnN9u2Df", oauth_nonce="f73aad2e0e5eb3f640ba844d9ed8f1ae",
+        oauth_signature="6aAsb0owFUd8%2BBJf%2BzO5HPLDEdE%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1428466987", oauth_token="410739240-pHPJnKJsQufXJXrH2j2gmhWx923Y4O3b1ziOZ3gi",
         oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -112,18 +112,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Wed, 08 Apr 2015 01:04:08 GMT
+      - Wed, 08 Apr 2015 04:23:07 GMT
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Wed, 08 Apr 2015 01:04:08 GMT
+      - Wed, 08 Apr 2015 04:23:07 GMT
       Pragma:
       - no-cache
       Server:
       - tsa_a
       Set-Cookie:
-      - guest_id=v1%3A142845504830694982; Domain=.twitter.com; Path=/; Expires=Fri,
-        07-Apr-2017 01:04:08 UTC
+      - guest_id=v1%3A142846698775568767; Domain=.twitter.com; Path=/; Expires=Fri,
+        07-Apr-2017 04:23:07 UTC
       - lang=en
       Status:
       - 200 OK
@@ -132,7 +132,7 @@ http_interactions:
       X-Access-Level:
       - read-write
       X-Connection-Hash:
-      - b839e394c62edf46e85e06c0920923cf
+      - 28fbc7095844f9462a343bce790f582d
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -140,13 +140,13 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '15'
       X-Rate-Limit-Remaining:
-      - '14'
+      - '13'
       X-Rate-Limit-Reset:
-      - '1428455948'
+      - '1428467627'
       X-Response-Time:
-      - '107'
+      - '205'
       X-Transaction:
-      - fcdf309541943fa5
+      - e767cc5e6d551675
       X-Twitter-Response-Tags:
       - BouncerCompliant
       X-Xss-Protection:
@@ -155,5 +155,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"ids":[15169196,14321259,170662357,16601619,19080399,372041439,592535210,13334762,209058378,226993426,236588417,11348282,252481460,311340284,1008000139,289969718,35432131,990244189,65517538,1704785540,19691971,34605923,2526229286,26241538,16731023,604417908,34224632,291049995,118029798,22955180,47334057,278825529,358052219,1306819549,173006018,489068782,483409655,280612866,1946120082,826510740,95943980,40175742,21502768,974616096,47273137,35115377,14610920,4959061,10173942,567200327,184997446,81291664,556678231,30015171,76200378,295010895,14708671,17939037,598149199,15214620,745273,44196397,250831586,378223565,21176417,65646293,503579230,17230018,373951619,53297035,1374527978,407137170,257827156,176400317,169969771,66561957,78546352,329303394,6475722,78035324,600194036,181907535,1205666185,27816957,1054326152,68390700,334614829,31371926,43207644,32375516,225932374,43492132,116701868,29170474,19456870,40914569,20304556,15888142,334488320,511097213,14561327,25791837,49317804,424020215,273383780,30814395,30852503,21292944,5520332,48651868,14671837,72725663,33338077,17858193,7899052,30639567,406083970,249497487,74543,17503180,18448750,150519208,898371,112880396,21191567,567705818,7315022,252543357,577798385,298527546,239284645,17444309,508110571,218167872,18923195,12,17100329,42455153,571491988,14589257,92727851,24564883,6880,78041067,541724545,166739404,3840,22588936,16350858,26189696,586,24289404,3475,108698830,59949396,52613032,213855080,16142240,473498327,21834394,251844666,19366976,268381315,95141340,6778812,163468416,405136915,1267041,11740902,36079474,40456367,1000591,14999454,21082741,235741536,657863,14243030,1081,254507180,16664291,19210648,94682674,212511043,65581771,151796023,569033585,8287602,22747624,6516132,14500709,677933,14793506,402957957,557454411,8317932,190533521,8504952,1054521,197962366,14092590,132340401,309951877,181096818,414519804,15755519,92413756,14967672,14445920,540425623,373413896,14307228,186740669,550589842,9106622,7676722,310839630,9520772,260684611,191334657,34257807,115667735,15996963,501625529,160191295,322658104,491550269,513766127,511147157,374498833,431535555,408193749,24684877,423293779,233830388,531729008,365766740,56596744,14381036,19429964,243284052,8460032,183749519,297586910,407304219,126523687,19085108,413616506,168857946,15188235,431542058,252535878,14314500,18593650,4928781,44826246,205963730,109867106,14278978,15363341,282434241,304210747,74630135,20194104,288575853,119070272,466310992,47913254,262098482,66330367,71695193,440476664,375839907,281896895,18181705,22204844,14474599,38448399,20115812,135400632,17433901,1073761,14599126,17098067,78194038,17420537,6249902,32148489,366865469,21380002,34270684,57961091,237507666,18479184,11827122,149072105,14777529,47071455,41858914,388856816,25470584,14863890,439774596,71630332,11447312,456228469,16878874,24693686,131475221,321206343,16210968,32756754,23423553,20569367,467155554,244719708,52410697,455214376,423731825,450226400,146862054,23292721,247732003,16849887,360495519,123543362,479673980,411904878,22356478,374952014,384293883,178956661,149142585,377796166,18552088,20215898,302475974,471628328,200716446,369218507,368708962,1331551,298315153,146879421,395826772,21162266,148142411,15423671,14900275,18173336,14104965,19374104,125625006,231730551,415765530,112679183,7512,215857426,412831279,43014478,10706,41003985,14189878,130338010,28060716,96710406,4641021,259559783,349170833,127475673,280330423,17726639,330179472,18966165,278252108,178503255,14077095,292129641,52558567,243454963,335358150,19500345,372075189,249639024,101937286,18009367,252405424,255327700,448649580,190177160,148613127,24137054,138278044,21954001,158568333,52339517,150146259,312391268,275870003,292715332,24685056,180183677,411652759,136826054,15125371],"next_cursor":0,"next_cursor_str":"0","previous_cursor":0,"previous_cursor_str":"0"}'
     http_version: 
-  recorded_at: Wed, 08 Apr 2015 01:04:08 GMT
+  recorded_at: Wed, 08 Apr 2015 04:23:08 GMT
 recorded_with: VCR 2.9.3

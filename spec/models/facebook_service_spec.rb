@@ -6,6 +6,7 @@ module SocialLogin
     before :each do
       @user = User.create(email: "email@address.com")
       allow_any_instance_of(FacebookService).to receive(:redis_instance).and_return(Redis.new)
+      allow_any_instance_of(FacebookService).to receive(:append_to_associated_services).and_return(true)
     end
 
     describe "social login methods" do

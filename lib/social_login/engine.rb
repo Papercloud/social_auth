@@ -1,5 +1,6 @@
 module SocialLogin
   class Engine < ::Rails::Engine
+    isolate_namespace SocialLogin
 
     config.generators do |g|
       g.test_framework      :rspec,        :fixture => false
@@ -7,6 +8,5 @@ module SocialLogin
       g.assets false
       g.helper false
     end
-
   end
 end
