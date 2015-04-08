@@ -53,7 +53,7 @@ module SocialLogin
         another_service = Service.create(access_token: {fake: "fake"}, remote_id: "15", user: User.create, method: "Authenticated")
         @redis_server.sadd(another_service.redis_key(:friends), ["2"])
 
-        another_service.append_to_associated_services
+        Service.append_to_associated_services(another_service.id)
 
         expect(service.friend_ids.count).to eq 3
       end

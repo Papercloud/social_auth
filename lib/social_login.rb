@@ -1,4 +1,5 @@
 require "social_login/engine"
+require 'sidekiq'
 
 module SocialLogin
   extend ActiveSupport::Autoload

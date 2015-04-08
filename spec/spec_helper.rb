@@ -27,6 +27,8 @@ require 'factory_girl_rails'
 require "awesome_print"
 require 'vcr'
 require "fakeredis"
+require 'sidekiq/testing'
+
 
 ### SETUP VCR
 VCR.configure do |c|

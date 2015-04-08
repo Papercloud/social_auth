@@ -60,9 +60,10 @@ module SocialLogin
       self.class.where('remote_id IN (?) and type = ?', friend_ids, type)
     end
 
-    def append_to_associated_services
-      services.each do |service|
-        service.append_to_friends_list(remote_id)
+    def self.append_to_associated_services(id)
+      service = find(id)
+      service.services.each do |s|
+        s.append_to_friends_list(service.remote_id)
       end
     end
 
@@ -93,6 +94,12 @@ module SocialLogin
 
     def validate_methods
       errors.add(:method, 'not an accepted option') unless ACCEPTED_METHODS.include?(method)
+    end
+
+    private
+
+    def append_to_associated_services
+      self.class.delay.append_to_associated_services(self.id)
     end
 
   end
