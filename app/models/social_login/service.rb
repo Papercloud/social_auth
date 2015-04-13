@@ -63,14 +63,15 @@ module SocialLogin
     def self.append_to_associated_services(id)
       service = find(id)
       service.services.each do |s|
-        s.append_to_friends_list(service.remote_id)
+        s.append_to_friends_list(service)
       end
     end
 
-    def append_to_friends_list(remote_id)
+    def append_to_friends_list(service)
       if redis_instance.exists(self.redis_key(:friends))
-        redis_instance.sadd(self.redis_key(:friends), remote_id)
+        redis_instance.sadd(self.redis_key(:friends), service.remote_id)
       end
+      user.friend_joined_the_app_callback(service.user) if user.respond_to?(:friend_joined_the_app_callback)
     end
 
     def friend_ids

@@ -38,6 +38,12 @@ module SocialLogin
     end
 
     describe "append to friends list" do
+      before :each do
+        User.class_eval do
+          def friend_joined_the_app_callback(user)
+          end
+        end
+      end
 
       it "append to associate_services gets called on create" do
         expect_any_instance_of(Service).to receive(:append_to_associated_services).once
@@ -56,6 +62,20 @@ module SocialLogin
         Service.append_to_associated_services(another_service.id)
 
         expect(service.friend_ids.count).to eq 3
+      end
+
+      it "receives friend_join_the_app callback" do
+        expect_any_instance_of(User).to receive(:friend_joined_the_app_callback)
+
+        service = Service.create(access_token: {fake: "fake"}, remote_id: "2", user: User.create, method: "Authenticated")
+        @redis_server.sadd(service.redis_key(:friends), ["10", "11"])
+
+        expect(service.friend_ids.count).to eq 2
+
+        another_service = Service.create(access_token: {fake: "fake"}, remote_id: "15", user: User.create, method: "Authenticated")
+        @redis_server.sadd(another_service.redis_key(:friends), ["2"])
+
+        Service.append_to_associated_services(another_service.id)
       end
     end
 
