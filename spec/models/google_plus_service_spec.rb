@@ -7,6 +7,10 @@ module SocialLogin
       @user = User.create(email: "email@address.com")
       allow_any_instance_of(GooglePlusService).to receive(:redis_instance).and_return(Redis.new)
       allow_any_instance_of(GooglePlusService).to receive(:append_to_associated_services).and_return(true)
+      SocialLogin.google_client_id = "1053743633063-aaearku9rl008rc8vq7muvreifc4jbo8.apps.googleusercontent.com"
+      SocialLogin.google_client_secret = "rK6Fkmo6qpiiy0_SnWJDOlgv"
+      SocialLogin.google_redirect_uri = "https://developers.google.com/oauthplayground"
+      SocialLogin.google_api_key = "AIzaSyAKMHRoLKyRo5rivF8hq_Ic3SmvphBYIBk"
     end
 
     describe "social login methods" do
@@ -61,13 +65,28 @@ module SocialLogin
       it "invalid_token raises InvalidToken exception" do
         VCR.use_cassette('google_plus_service/invalid_token') do
           expect{
-            GooglePlusService.connect_with(@user, {access_token: "wrong"})
+            GooglePlusService.connect_with(@user, {auth_token: "wrong"})
           }.to raise_error InvalidToken
         end
       end
     end
 
     describe "create_connection" do
+      it "fetches token correctly" do
+        VCR.use_cassette("google_plus_service/valid_authorization") do
+          response = GooglePlusService.fetch_access_token({auth_token: google_plus_auth_token})
+          expect(response[:refresh_token]).to be_present
+        end
+      end
+
+      it "fetches token correctly" do
+        VCR.use_cassette("google_plus_service/invalid_authorization") do
+          expect{
+            GooglePlusService.fetch_access_token({auth_token: "bad-token"})
+          }.to raise_error InvalidToken
+        end
+      end
+
       it "returns valid connection" do
         VCR.use_cassette('google_plus_service/valid_request') do
           expect{
@@ -79,7 +98,7 @@ module SocialLogin
 
     describe "friend_ids" do
       before :each do
-        @service = GooglePlusService.create(access_token: google_plus_access_token, remote_id: "410739240", user: @user, method: "Authenticated")
+        @service = GooglePlusService.create(access_token: {refresh_token:  google_plus_access_token[:refresh_token]}, remote_id: "410739240", user: @user, method: "Authenticated")
       end
 
       it "returns friend_ids" do
