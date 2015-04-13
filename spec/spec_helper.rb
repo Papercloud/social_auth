@@ -54,7 +54,6 @@ RSpec.configure do |config|
     }
   end
 
-
   def fb_access_token
     {
       access_token: "CAAVcHuFT94wBABZCLk1HBB9OY6jdgwIwuOGcfBoY0srXB9Fh535odH9Y2SwHfZC7H8lHovvy8Wt9NZBx8IsieNiCZAZB5uptn9q2MxytBD93IDo3Kf0ZCmaiIAZAvCBfG9h18jKfp091uE5c6aXZB4sLyOkCWvO4O5CYgItX4G3eWoAqmnUinoZCQfzT629GQNU0ZBAUQ0AckiXh09xY0fnkhw"
@@ -63,8 +62,13 @@ RSpec.configure do |config|
 
   def google_plus_access_token
     {
-      access_token: "ya29.TwE-Usj1SWrqLIQMUxzJy9-3y5pQoTY9Ar7RgJTAPMSNxYBO3fN3xH9SPfvbL2gDrc7jFC5iEJ8Zhg"
+      auth_token: "4/81ovnVqwDmSnROuqAd9AfVu-0tZ7-ZdzQ-TVdpMAFTk.4gM5OPkuRu0TBrG_bnfDxpL07IdjmQI",
+      refresh_token: "1/b-cUt2E2hoExpHcu2MaglfxeG6aLzYH7ViSjWFhRGcR90RDknAdJa_sgfheVM0XT"
     }
+  end
+
+  def google_plus_auth_token
+    "4/tADLvbfsrV_QMHpMfSYnkbrSknKr-ouiYziP7wDSpKU.Aijw9R2uJ6EdBrG_bnfDxpJm8BZjmQI"
   end
 
 end

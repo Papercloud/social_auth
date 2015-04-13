@@ -4,7 +4,7 @@ module SocialLogin
   describe TwitterService do
     before :each do
       @user = User.create(email: "email@address.com")
-      #have since been revoked so use vcr recordsk
+      #have since been revoked so use vcr records
       SocialLogin.twitter_consumer_key = "MxzWRgtXC2CVc71azEnN9u2Df"
       SocialLogin.twitter_consumer_secret = "QxNG8LukvzeAayj7igWazoUks9DtluNPn6D6Ej60bmu9z8uzM4"
       allow_any_instance_of(TwitterService).to receive(:redis_instance).and_return(Redis.new)

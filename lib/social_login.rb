@@ -10,10 +10,22 @@ module SocialLogin
   @@redis_instance_method = nil
 
   mattr_accessor :twitter_consumer_key
-  @@redis_instance_method = nil
+  @@twitter_consumer_key = nil
 
   mattr_accessor :twitter_consumer_secret
-  @@redis_instance_method = nil
+  @@twitter_consumer_secret = nil
+
+  mattr_accessor :google_client_id
+  @@google_client_id = nil
+
+  mattr_accessor :google_client_secret
+  @@google_client_secret = nil
+
+  mattr_accessor :google_redirect_uri
+  @@google_redirect_uri = nil
+
+  mattr_accessor :google_api_key
+  @@google_api_key = nil
 
   # Used to set up Social Login from the initializer.
   def self.setup
