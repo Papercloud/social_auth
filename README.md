@@ -71,3 +71,9 @@ class User
   end
 end
 ```
+###Running specs
+
+```ruby
+BUNDLE_GEMFILE=gemfiles/rails42.gemfile bundle install
+BUNDLE_GEMFILE=gemfiles/rails42.gemfile bundle exec rspec spec
+```
