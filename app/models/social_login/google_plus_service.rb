@@ -56,11 +56,11 @@ module SocialLogin
       end
 
       request.on_complete do |response|
+        body =  JSON.parse(response.body).with_indifferent_access
         if response.success?
-          body =  JSON.parse(response.body).with_indifferent_access
           return body
         else
-          raise InvalidToken.new(response.return_message)
+          raise InvalidToken.new(body[:error_description])
         end
       end
 
