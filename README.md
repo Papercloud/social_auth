@@ -26,10 +26,10 @@ rake db:migrate
 ```
 **Type and Token chart**
 
-Type | Token
---- | --- 
+Type | Token | Notes 
+--- | --- | ---
 `facebook`| `{access_token: "token"}`
-`google_plus`| `{access_token: "token"}`
+`google_plus`| `{auth_token: "token"}`| *We exchange your auth_token for a refresh_token which we do store*
 `twitter`| `{access_token: "token", access_token_secret: "secret_token"}`
 
 ###Usage
