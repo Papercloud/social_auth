@@ -68,7 +68,7 @@ RSpec.configure do |config|
   end
 
   def google_plus_auth_token
-    "4/tADLvbfsrV_QMHpMfSYnkbrSknKr-ouiYziP7wDSpKU.Aijw9R2uJ6EdBrG_bnfDxpJm8BZjmQI"
+    "4/k3zsWZFZIoVrvIu_Jeah7Q2c2JgLGv8ZMsVPf4h2JFw.MgLvwAJk3uMWBrG_bnfDxpIcy7NrmQI"
   end
 
 end
