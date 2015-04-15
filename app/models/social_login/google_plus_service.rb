@@ -1,4 +1,5 @@
 require 'google_plus'
+require 'typhoeus'
 
 module SocialLogin
   class GooglePlusService < Service
