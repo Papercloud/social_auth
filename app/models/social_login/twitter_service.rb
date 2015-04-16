@@ -44,7 +44,7 @@ module SocialLogin
       if redis_instance.exists(redis_key(:friends))
         friend_ids = redis_instance.smembers(redis_key(:friends))
       else
-        friend_ids = self.class.create_connection(access_token).friend_ids.to_hash[:ids]
+        friend_ids = self.class.create_connection(access_token).friend_ids.to_hash[:ids].map(&:to_s)
         unless friend_ids.empty?
           redis_instance.del(redis_key(:friends))
           redis_instance.sadd(redis_key(:friends), friend_ids.to_s)
