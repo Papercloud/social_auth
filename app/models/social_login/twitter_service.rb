@@ -17,13 +17,13 @@ module SocialLogin
       raise InvalidToken.new(e.message)
     end
 
-    def self.connect_with(user, auth_token={})
+    def self.connect_with(user, auth_token={}, method="Connected")
       request = create_connection(auth_token)
 
       return create_with_request(
         request.user.id,
         user,
-        "Connected",
+        method,
         {access_token: request.access_token, access_token_secret: request.access_token_secret}
       )
 

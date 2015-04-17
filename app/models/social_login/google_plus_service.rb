@@ -18,14 +18,14 @@ module SocialLogin
       raise InvalidToken.new(e.message)
     end
 
-    def self.connect_with(user, auth_token={})
+    def self.connect_with(user, auth_token={}, method="Connected")
       access_token = fetch_access_token(auth_token)
       request = create_connection(access_token).get('me')
 
       return create_with_request(
         request.id,
         user,
-        "Connected",
+        method,
         {refresh_token: access_token[:refresh_token]}
       )
     rescue GooglePlus::RequestError => e
