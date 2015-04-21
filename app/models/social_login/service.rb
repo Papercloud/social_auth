@@ -35,7 +35,8 @@ module SocialLogin
 
     def self.create_with_request(remote_id, user, method="Connected", access_token={})
       remote_id = remote_id.to_s
-      unless service = find_by_remote_id_and_method(remote_id, method)
+
+      unless (service = find_by_remote_id_and_method(remote_id, method)) && method == "Authenticated"
         #attempts to look if some other user connected this same facebook account if its an authentication request
         if count = where(remote_id: remote_id, method: "Connected").count == 1 and method == "Authenticated"
           service = find_by_remote_id_and_method(remote_id, "Connected")
