@@ -101,6 +101,17 @@ module SocialLogin
         end
       end
 
+      it "invalid_token returns empty array and hits disconnect callback" do
+        service = FacebookService.create(access_token: {access_token: "test"}, remote_id: "10204796229055532", user: @user, method: "Authenticated")
+
+        expect_any_instance_of(FacebookService).to receive(:disconnect).once
+        VCR.use_cassette("facebook_service/invalid_friends_request") do
+          expect{
+            expect(@service.friend_ids).to be_empty
+          }.to_not raise_error
+        end
+      end
+
     end
 
   end

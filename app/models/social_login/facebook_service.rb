@@ -47,6 +47,10 @@ module SocialLogin
         end
       end
       friend_ids
+
+    rescue InvalidToken => e
+      disconnect
+      return []
     end
 
   end

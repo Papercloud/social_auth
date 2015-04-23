@@ -79,6 +79,26 @@ module SocialLogin
       end
     end
 
+    describe "disconnect" do
+      before :each do
+        @service = Service.create(access_token: {access_token: "test"}, remote_id: "10204796229055532", user: @user, method: "Authenticated")
+      end
+
+      it "destroys service if 'Connected' service" do
+        @service.update(method: 'Connected')
+        expect{
+          @service.disconnect
+        }.to change(Service, :count).by(-1)
+      end
+
+      it "doesn't destroy service if 'Authenticated' service" do
+        @service.update(method: 'Authenticated')
+        expect{
+          @service.disconnect
+        }.to change(Service, :count).by(0)
+      end
+    end
+
     describe "validations" do
       before :each do
         @user = User.create

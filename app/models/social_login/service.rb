@@ -85,6 +85,12 @@ module SocialLogin
       end
     end
 
+    def disconnect
+      #destroys service
+      self.destroy if method == 'Connected'
+      #some sort of callback so the app can react
+    end
+
     # helper method to generate redis keys
     def redis_key(str)
       "#{type}:#{id}:#{str}"
