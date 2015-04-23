@@ -108,6 +108,16 @@ module SocialLogin
           }.to_not raise_error
         end
       end
+
+      it "invalid_token returns empty array and hits disconnect callback" do
+        service = GooglePlusService.create(access_token: {refresh_token: "fake"}, remote_id: "410739240", user: @user, method: "Authenticated")
+        expect_any_instance_of(GooglePlusService).to receive(:disconnect).once
+        VCR.use_cassette("google_plus_service/invalid_friends_request") do
+          expect{
+            expect(service.friend_ids).to be_empty
+          }.to_not raise_error
+        end
+      end
     end
   end
 

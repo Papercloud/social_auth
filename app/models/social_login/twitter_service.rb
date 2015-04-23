@@ -38,6 +38,8 @@ module SocialLogin
         config.access_token        = auth_token[:access_token]
         config.access_token_secret = auth_token[:access_token_secret]
       end
+      #the reason why we don't catch any exceptions here is because it only initializes the connection no
+      #requests are actually made here
     end
 
     def friend_ids
@@ -52,6 +54,9 @@ module SocialLogin
         end
       end
       friend_ids
+    rescue Twitter::Error::Unauthorized => e
+      disconnect
+      return []
     end
 
   end

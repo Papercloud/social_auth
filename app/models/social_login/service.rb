@@ -3,6 +3,8 @@ module SocialLogin
     #validations
     validates_presence_of :user, :access_token, :remote_id, :method
     validates_uniqueness_of :remote_id, scope: [:type], conditions: -> {where(method: 'Authenticated')}
+    validates_uniqueness_of :remote_id, scope: [:type, :user_id], conditions: -> {where(method: 'Connected')}
+
     before_validation :validate_methods
 
     #relations
@@ -81,6 +83,12 @@ module SocialLogin
       else
         []
       end
+    end
+
+    def disconnect
+      #destroys service
+      self.destroy if method == 'Connected'
+      #some sort of callback so the app can react
     end
 
     # helper method to generate redis keys

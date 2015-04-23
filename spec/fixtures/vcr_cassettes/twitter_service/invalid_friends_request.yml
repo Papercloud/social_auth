@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/account/verify_credentials.json?skip_status=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.14.0
+      Authorization:
+      - OAuth oauth_consumer_key="MxzWRgtXC2CVc71azEnN9u2Df", oauth_nonce="abc33eead86dbe6780167251defc6f93",
+        oauth_signature="O9t4zlNBJvlOtZAmJ6nmHXOfmQY%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1429778938", oauth_token="test", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Authorization Required
+    headers:
+      Content-Length:
+      - '87'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 23 Apr 2015 08:49:00 GMT
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A142977894021623341; Domain=.twitter.com; Path=/; Expires=Sat,
+        22-Apr-2017 08:49:00 UTC
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Connection-Hash:
+      - 2b5b68c77b10305aa73fab86bcbd4bc8
+      X-Response-Time:
+      - '6'
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":89,"message":"Invalid or expired token."}]}'
+    http_version: 
+  recorded_at: Thu, 23 Apr 2015 08:49:00 GMT
+recorded_with: VCR 2.9.3
