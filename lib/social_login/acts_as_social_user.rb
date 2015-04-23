@@ -5,8 +5,11 @@ module SocialLogin
     included do
 
       def friends_that_use_the_app
-        remote_ids = services.map(&:friend_ids).flatten.map(&:to_s)
         self.class.joins(:services).where('social_login_services.remote_id IN (?)', remote_ids)
+      end
+
+      def remote_ids
+        remote_ids = services.map(&:friend_ids).flatten.map(&:to_s)
       end
 
     end
