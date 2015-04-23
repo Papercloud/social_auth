@@ -84,6 +84,17 @@ module SocialLogin
         @user = User.create
       end
 
+      it "valid if 1 'Connected' of the same type exists for the same user" do
+        service = Service.new(access_token: {access_token: "34223"}, remote_id: "34343", user: @user, method: "Connected")
+        expect(service).to be_valid
+      end
+
+      it "invalid if more than 1 'Connected' of the same type exists for the same user"  do
+        service = Service.create(access_token: {access_token: "34223"}, remote_id: "34343", user: @user, method: "Connected")
+        other_service = Service.create(access_token: {access_token: "34223"}, remote_id: "34343", user: @user, method: "Connected")
+        expect(other_service).to_not be_valid
+      end
+
       it "can have 1 authenticated service scoped remote_id" do
         service = Service.new(access_token: {access_token: "34223"}, remote_id: "34343", user: @user, method: "Authenticated")
         expect(service).to be_valid
@@ -97,7 +108,7 @@ module SocialLogin
 
       it "can have multiple connected services with same remote_id" do
         service = Service.create(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Connected")
-        another_service = Service.create(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Connected")
+        another_service = Service.create(access_token: {access_token: "fdf"}, remote_id: "34343", user: User.create, method: "Connected")
         expect(another_service).to be_valid
       end
     end
