@@ -54,7 +54,7 @@ module SocialLogin
     end
   end
 
-  def self.disconect(user, type)
+  def self.disconnect(user, type)
     case type.camelize
     when "Facebook"
       FacebookService.disconnect_user(user)
