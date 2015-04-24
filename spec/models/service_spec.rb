@@ -118,7 +118,6 @@ module SocialLogin
       it "'Connected' service is valid if another 'Authenticated' service exists with the same remote_id but for another user" do
         service = Service.create(access_token: {access_token: "access_token"}, remote_id: "1", user: User.create, method: "Authenticated")
         other_service = Service.new(access_token: {access_token: "access_token"}, remote_id: "1", user: @user, method: "Connected")
-        ap other_service
         expect(other_service).to be_valid
       end
 
