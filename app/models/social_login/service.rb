@@ -85,6 +85,17 @@ module SocialLogin
       end
     end
 
+    def self.disconnect_user(user)
+      service = find_by_user_id(user.id)
+      if service
+        raise Error.new("Cannot disconnect a service you used to authenticate with") if service.authenticated?
+
+        service.disconnect
+      else
+        raise ServiceDoesNotExist.new("Couldn't find service for this user")
+      end
+    end
+
     def disconnect
       #destroys service
       self.destroy if method == 'Connected'
@@ -100,13 +111,21 @@ module SocialLogin
       $redis
     end
 
+    def authenticated?
+      return true if method == 'Authenticated'
+      false
+    end
+
+    def connected?
+      return true if method == 'Connected'
+      false
+    end
+
     private
 
     def validate_methods
       errors.add(:method, 'not an accepted option') unless ACCEPTED_METHODS.include?(method)
     end
-
-    private
 
     def append_to_associated_services
       self.class.delay.append_to_associated_services(self.id)
@@ -118,5 +137,7 @@ module SocialLogin
   class InvalidToken < StandardError ; end
   class BadRequest < StandardError ; end
   class MultipleConnectedAccounts < StandardError ; end
+  class ServiceDoesNotExist < StandardError ; end
+  class Error < StandardError ; end
 
 end

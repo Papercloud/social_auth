@@ -53,6 +53,17 @@ module SocialLogin
       GooglePlusService.connect_with(user, auth_token, method)
     end
   end
+
+  def self.disconect(user, type)
+    case type.camelize
+    when "Facebook"
+      FacebookService.disconnect_user(user)
+    when "Twitter"
+      TwitterService.disconnect_user(user)
+    when "GooglePlus"
+      GooglePlusService.disconnect_user(user)
+    end
+  end
 end
 
 module ActiveRecord

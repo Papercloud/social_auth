@@ -99,6 +99,32 @@ module SocialLogin
       end
     end
 
+    describe "disconnect_user" do
+      before :each do
+      end
+
+      it "disconnects service belong to user" do
+        service = Service.create(access_token: {access_token: "34223"}, remote_id: "34343", user: @user, method: "Connected")
+
+        expect_any_instance_of(Service).to receive(:disconnect).once
+        Service.disconnect_user(@user)
+      end
+
+      it "raises exception if you try to disconnect an authenticated service" do
+        service = Service.create(access_token: {access_token: "34223"}, remote_id: "34343", user: @user, method: "Authenticated")
+
+        expect{
+          Service.disconnect_user(@user)
+        }.to raise_error Error
+      end
+
+      it "raises exception if no service exists" do
+        expect{
+          Service.disconnect_user(@user)
+        }.to raise_error ServiceDoesNotExist
+      end
+    end
+
     describe "validations" do
       before :each do
         @user = User.create
@@ -113,6 +139,9 @@ module SocialLogin
         service = Service.create(access_token: {access_token: "34223"}, remote_id: "34343", user: @user, method: "Connected")
         other_service = Service.create(access_token: {access_token: "34223"}, remote_id: "34343", user: @user, method: "Connected")
         expect(other_service).to_not be_valid
+      end
+
+      xit "can't connect a service you have already authenticated with" do
       end
 
       it "'Connected' service is valid if another 'Authenticated' service exists with the same remote_id but for another user" do

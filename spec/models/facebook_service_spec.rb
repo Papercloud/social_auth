@@ -101,6 +101,15 @@ module SocialLogin
         end
       end
 
+      it "if user has no friends returns empty array" do
+        allow_any_instance_of(FbGraph2::Edge::Friends).to receive(:friends).and_return([])
+        VCR.use_cassette("facebook_service/valid_friends_request") do
+          expect{
+            expect(@service.friend_ids).to be_empty
+          }.to_not raise_error
+        end
+      end
+
       it "invalid_token returns empty array and hits disconnect callback" do
         service = FacebookService.create(access_token: {access_token: "test"}, remote_id: "10204796229055532", user: @user, method: "Authenticated")
 
