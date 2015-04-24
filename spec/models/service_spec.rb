@@ -115,6 +115,13 @@ module SocialLogin
         expect(other_service).to_not be_valid
       end
 
+      it "'Connected' service is valid if another 'Authenticated' service exists with the same remote_id but for another user" do
+        service = Service.create(access_token: {access_token: "access_token"}, remote_id: "1", user: User.create, method: "Authenticated")
+        other_service = Service.new(access_token: {access_token: "access_token"}, remote_id: "1", user: @user, method: "Connected")
+        ap other_service
+        expect(other_service).to be_valid
+      end
+
       it "can have 1 authenticated service scoped remote_id" do
         service = Service.new(access_token: {access_token: "34223"}, remote_id: "34343", user: @user, method: "Authenticated")
         expect(service).to be_valid
@@ -141,6 +148,13 @@ module SocialLogin
       it "creates an Authenticated method service if remote id doesn't exist" do
         expect{
           valid_service_from_request
+        }.to change(Service, :count).by(1)
+      end
+
+      it "Can create a connected service even if an authenticated service belonging to another user already exists" do
+        service = Service.create(access_token: {access_token: "access_token"}, remote_id: "1", user: User.create, method: "Authenticated")
+        expect{
+          Service.create_with_request("1", @user, "Connected", {access_token: "access_token"})
         }.to change(Service, :count).by(1)
       end
 
