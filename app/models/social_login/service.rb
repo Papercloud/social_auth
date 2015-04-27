@@ -19,6 +19,10 @@ module SocialLogin
     ACCEPTED_METHODS = %w(Authenticated Connected)
     REDIS_CACHE = 2_592_000 # cache expiry in seconds
 
+    def name
+      raise "need to implement"
+    end
+
     def access_token
       if super.blank?
         {}

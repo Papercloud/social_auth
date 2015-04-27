@@ -2,6 +2,9 @@ require 'fb_graph2'
 
 module SocialLogin
   class FacebookService < Service
+    def name
+      "Facebook"
+    end
 
     def self.init_with(auth_token={})
       request = create_connection(auth_token)

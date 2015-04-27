@@ -3,6 +3,10 @@ require 'twitter'
 module SocialLogin
   class TwitterService < Service
 
+    def name
+      "Twitter"
+    end
+
     def self.init_with(auth_token={})
       request = create_connection(auth_token)
 

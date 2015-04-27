@@ -4,6 +4,10 @@ require 'typhoeus'
 module SocialLogin
   class GooglePlusService < Service
 
+    def name
+      "Google Plus"
+    end
+
     def self.init_with(auth_token={})
       access_token = fetch_access_token(auth_token)
       request = create_connection(access_token).get('me')
