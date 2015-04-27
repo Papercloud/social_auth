@@ -1,7 +1,7 @@
 PATH
   remote: ../
   specs:
-    social_login (0.0.5)
+    social_login (0.0.6)
       fb_graph2
       google_plus (~> 0.2.3)
       rails (~> 4.0)

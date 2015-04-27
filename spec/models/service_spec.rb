@@ -82,6 +82,11 @@ module SocialLogin
     describe "disconnect" do
       before :each do
         @service = Service.create(access_token: {access_token: "test"}, remote_id: "10204796229055532", user: @user, method: "Authenticated")
+        User.class_eval do
+          has_many :services, inverse_of: :user, class_name: SocialLogin::Service
+          def service_disconnected_callback(service)
+          end
+        end
       end
 
       it "destroys service if 'Connected' service" do
@@ -96,6 +101,16 @@ module SocialLogin
         expect{
           @service.disconnect
         }.to change(Service, :count).by(0)
+      end
+
+      it "hits service disconnected callback if callback is true" do
+        expect_any_instance_of(User).to receive(:service_disconnected_callback).once
+        @service.disconnect
+      end
+
+      it "doesn't hit service disconnected callback if callback is false" do
+        expect_any_instance_of(User).to_not receive(:service_disconnected_callback).once
+        @service.disconnect(false)
       end
     end
 

@@ -90,16 +90,17 @@ module SocialLogin
       if service
         raise Error.new("Cannot disconnect a service you used to authenticate with") if service.authenticated?
 
-        service.disconnect
+        service.disconnect(false)
       else
         raise ServiceDoesNotExist.new("Couldn't find service for this user")
       end
     end
 
-    def disconnect
+    def disconnect(callback=true)
       #destroys service
       self.destroy if method == 'Connected'
-      #some sort of callback so the app can react
+      #notifies the user that their service is about to be disconnected
+      user.service_disconnected_callback(self) if user.respond_to?(:service_disconnected_callback) and callback
     end
 
     # helper method to generate redis keys
