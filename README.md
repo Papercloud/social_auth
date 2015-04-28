@@ -13,7 +13,7 @@ Each service is identified by a `method` which can either be `Authenticated` (Th
 
 ###Install
 ```
-gem 'social_login', github: 'papercloud/social_login'
+gem 'social-login'
 ```
 
 *Note you'll need to update the migration to `uuids` if thats what your using.*
