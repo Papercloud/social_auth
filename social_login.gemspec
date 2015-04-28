@@ -5,7 +5,7 @@ require "social_login/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "social_login"
+  s.name        = "social-login"
   s.version     = SocialLogin::VERSION
   s.authors     = ["William Porter"]
   s.email       = ["wp@papercloud.com.au"]
