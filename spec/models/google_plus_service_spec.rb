@@ -109,6 +109,15 @@ module SocialLogin
         end
       end
 
+      it "doesn't raise error if user has no friends" do
+        expect_any_instance_of(GooglePlusService).to receive(:google_items).and_return(nil)
+        VCR.use_cassette("google_plus_service/valid_friends_request") do
+          expect{
+            expect(@service.friend_ids).to be_empty
+          }.to_not raise_error
+        end
+      end
+
       it "invalid_token returns empty array and hits disconnect callback" do
         service = GooglePlusService.create(access_token: {refresh_token: "fake"}, remote_id: "410739240", user: @user, method: "Authenticated")
         expect_any_instance_of(GooglePlusService).to receive(:disconnect).once

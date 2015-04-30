@@ -78,15 +78,22 @@ module SocialLogin
       GooglePlus::Person
     end
 
+    def google_items
+      self.class.create_connection(self.class.fetch_access_token(access_token)).list.items
+    end
+
     def friend_ids
       if redis_instance.exists(redis_key(:friends))
         friend_ids = redis_instance.smembers(redis_key(:friends))
       else
-        friend_ids = self.class.create_connection(self.class.fetch_access_token(access_token)).list.items.map(&:id)
-        unless friend_ids.empty?
+        items = google_items
+        friend_ids = items.map(&:id) if items.present?
+        if friend_ids.present?
           redis_instance.del(redis_key(:friends))
           redis_instance.sadd(redis_key(:friends), friend_ids)
           redis_instance.expire(redis_key(:friends), REDIS_CACHE)
+        else
+          return []
         end
       end
       friend_ids
