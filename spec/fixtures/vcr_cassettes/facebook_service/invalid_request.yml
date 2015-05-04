@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.0/me
+    uri: https://graph.facebook.com/v2.3/me
     body:
       encoding: UTF-8
       string: ''
@@ -45,6 +45,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"error":{"message":"Invalid OAuth access token.","type":"OAuthException","code":190}}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 08 Apr 2015 01:29:03 GMT
 recorded_with: VCR 2.9.3

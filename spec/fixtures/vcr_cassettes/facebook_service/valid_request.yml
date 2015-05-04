@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.0/me
+    uri: https://graph.facebook.com/v2.3/me
     body:
       encoding: UTF-8
       string: ''
@@ -50,6 +50,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"id":"10204796229055532","birthday":"07\/14\/1992","email":"dawilster143\u0040gmail.com","first_name":"William","gender":"male","last_name":"Porter","link":"https:\/\/www.facebook.com\/app_scoped_user_id\/10204796229055532\/","location":{"id":"116190411724975","name":"Melbourne,
         Victoria, Australia"},"locale":"en_GB","name":"William Porter","timezone":10,"updated_time":"2014-09-07T02:44:02+0000","verified":true}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 08 Apr 2015 01:29:03 GMT
 recorded_with: VCR 2.9.3
