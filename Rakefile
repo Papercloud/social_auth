@@ -21,7 +21,7 @@ FileList['tasks/**/*.rake'].each { |task| import task }
 
 # RDoc::Task.new(:rdoc) do |rdoc|
 #   rdoc.rdoc_dir = 'rdoc'
-#   rdoc.title    = 'SocialLogin'
+#   rdoc.title    = 'SocialAuth'
 #   rdoc.options << '--line-numbers'
 #   rdoc.rdoc_files.include('README.rdoc')
 #   rdoc.rdoc_files.include('lib/**/*.rb')

@@ -1,6 +1,6 @@
-module SocialLogin
+module SocialAuth
   class Railtie < ::Rails::Railtie #:nodoc:
-    initializer 'social_login' do |_app|
+    initializer 'social_auth' do |_app|
 
     end
   end

@@ -1,3 +1,3 @@
-module SocialLogin
+module SocialAuth
   VERSION = "0.0.9"
 end

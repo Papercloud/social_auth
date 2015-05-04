@@ -1,6 +1,6 @@
 require 'fb_graph2'
 
-module SocialLogin
+module SocialAuth
   class FacebookService < Service
     def name
       "Facebook"

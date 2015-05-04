@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-module SocialLogin
+module SocialAuth
   describe TwitterService do
     before :each do
       @user = User.create(email: "email@address.com")
       #have since been revoked so use vcr records
-      SocialLogin.twitter_consumer_key = "MxzWRgtXC2CVc71azEnN9u2Df"
-      SocialLogin.twitter_consumer_secret = "QxNG8LukvzeAayj7igWazoUks9DtluNPn6D6Ej60bmu9z8uzM4"
+      SocialAuth.twitter_consumer_key = "MxzWRgtXC2CVc71azEnN9u2Df"
+      SocialAuth.twitter_consumer_secret = "QxNG8LukvzeAayj7igWazoUks9DtluNPn6D6Ej60bmu9z8uzM4"
       allow_any_instance_of(TwitterService).to receive(:redis_instance).and_return(Redis.new)
       allow_any_instance_of(TwitterService).to receive(:append_to_associated_services).and_return(true)
     end
@@ -14,12 +14,12 @@ module SocialLogin
     describe "social login methods" do
       it "receives init_with on authenticate" do
         expect(TwitterService).to receive(:init_with)
-        SocialLogin.authenticate("twitter", {access_token: "access_token", access_token_secret: "secret_token"})
+        SocialAuth.authenticate("twitter", {access_token: "access_token", access_token_secret: "secret_token"})
       end
 
       it "receives connect_with on connect" do
         expect(TwitterService).to receive(:connect_with)
-        SocialLogin.connect(@user, "twitter", {access_token: "access_token", access_token_secret: "secret_token"})
+        SocialAuth.connect(@user, "twitter", {access_token: "access_token", access_token_secret: "secret_token"})
       end
     end
 
@@ -28,7 +28,7 @@ module SocialLogin
         #create an override method on user which gets called whenever
         #we want a user created you do the rest!
         User.class_eval do
-          has_many :services, inverse_of: :user, class_name: SocialLogin::Service
+          has_many :services, inverse_of: :user, class_name: SocialAuth::Service
           def self.create_with_twitter_request(request)
             new
           end

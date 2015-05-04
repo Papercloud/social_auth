@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module SocialLogin
+module SocialAuth
 
   describe Service do
     before :each do
@@ -83,7 +83,7 @@ module SocialLogin
       before :each do
         @service = Service.create(access_token: {access_token: "test"}, remote_id: "10204796229055532", user: @user, method: "Authenticated")
         User.class_eval do
-          has_many :services, inverse_of: :user, class_name: SocialLogin::Service
+          has_many :services, inverse_of: :user, class_name: SocialAuth::Service
           def service_disconnected_callback(service)
           end
         end

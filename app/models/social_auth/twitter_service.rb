@@ -1,6 +1,6 @@
 require 'twitter'
 
-module SocialLogin
+module SocialAuth
   class TwitterService < Service
 
     def name
@@ -37,8 +37,8 @@ module SocialLogin
 
     def self.create_connection(auth_token={})
       Twitter::REST::Client.new do |config|
-        config.consumer_key        = SocialLogin.twitter_consumer_key
-        config.consumer_secret     = SocialLogin.twitter_consumer_secret
+        config.consumer_key        = SocialAuth.twitter_consumer_key
+        config.consumer_secret     = SocialAuth.twitter_consumer_secret
         config.access_token        = auth_token[:access_token]
         config.access_token_secret = auth_token[:access_token_secret]
       end

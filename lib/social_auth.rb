@@ -1,10 +1,10 @@
-require "social_login/engine"
+require "social_auth/engine"
 require 'sidekiq'
 
-module SocialLogin
+module SocialAuth
   extend ActiveSupport::Autoload
 
-  autoload :ActsAsSocialUser, 'social_login/acts_as_social_user'
+  autoload :ActsAsSocialUser, 'social_auth/acts_as_social_user'
 
   mattr_accessor :redis_instance_method
   @@redis_instance_method = nil
@@ -68,6 +68,6 @@ end
 
 module ActiveRecord
   class Base
-    include SocialLogin::ActsAsSocialUser
+    include SocialAuth::ActsAsSocialUser
   end
 end
