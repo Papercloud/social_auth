@@ -100,17 +100,19 @@ module SocialAuth
         @service.update(method: 'Authenticated')
         expect{
           @service.disconnect
-        }.to change(Service, :count).by(0)
+        }.to raise_error InvalidToken
       end
 
       it "hits service disconnected callback if callback is true" do
+        @service.update(method: 'Connected')
         expect_any_instance_of(User).to receive(:service_disconnected_callback).once
         @service.disconnect
       end
 
       it "doesn't hit service disconnected callback if callback is false" do
+        @service.update(method: 'Connected')
         expect_any_instance_of(User).to_not receive(:service_disconnected_callback).once
-        @service.disconnect(false)
+        @service.disconnect(nil, false)
       end
     end
 

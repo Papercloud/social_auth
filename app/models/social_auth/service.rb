@@ -94,17 +94,22 @@ module SocialAuth
       if service
         raise Error.new("Cannot disconnect a service you used to authenticate with") if service.authenticated?
 
-        service.disconnect(false)
+        service.disconnect(nil, false)
       else
         raise ServiceDoesNotExist.new("Couldn't find service for this user")
       end
     end
 
-    def disconnect(callback=true)
-      #destroys service
-      self.destroy if method == 'Connected'
-      #notifies the user that their service is about to be disconnected
-      user.service_disconnected_callback(self) if user.respond_to?(:service_disconnected_callback) and callback
+    def disconnect(e=nil, callback=true)
+      if connected?
+        #destroys service
+        self.destroy
+        #notifies the user that their service is about to be disconnected
+        user.service_disconnected_callback(self) if user.respond_to?(:service_disconnected_callback) and callback
+      else
+        #re_raises the exception
+        raise InvalidToken.new(e ? e.message : "Token has become invalid") #move to localization file
+      end
     end
 
     # helper method to generate redis keys
@@ -113,7 +118,7 @@ module SocialAuth
     end
 
     def redis_instance
-      $redis
+      $redis #need to change out for an configurable var
     end
 
     def authenticated?
@@ -141,7 +146,6 @@ module SocialAuth
   #exceptions
   class InvalidToken < StandardError ; end
   class BadRequest < StandardError ; end
-  class MultipleConnectedAccounts < StandardError ; end
   class ServiceDoesNotExist < StandardError ; end
   class Error < StandardError ; end
 
