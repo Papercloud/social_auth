@@ -52,7 +52,7 @@ module SocialAuth
       friend_ids
 
     rescue InvalidToken => e
-      disconnect
+      disconnect(e)
       return []
     end
 
