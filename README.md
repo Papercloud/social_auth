@@ -1,4 +1,4 @@
-# SocialLogin
+# SocialAuth
 
 Designed specifically for API authentication it makes supporting multiple login sources a breeze.
 
@@ -13,13 +13,13 @@ Each service is identified by a `method` which can either be `Authenticated` (Th
 
 ###Install
 ```
-gem 'social-login'
+gem 'social_auth'
 ```
 
 *Note you'll need to update the migration to `uuids` if thats what your using.*
 
 ```
-rails g social_login:install
+rails g social_auth:install
 rake db:migrate
 ```
 **Type and Token chart**
@@ -34,20 +34,20 @@ Type | Token | Notes
 **Authenticating**
 
 ```ruby
-SocialLogin.authenticate(type, auth_token)
+SocialAuth.authenticate(type, auth_token)
 ```
 
 **Connecting a service**
 
 ```ruby
-SocialLogin.connect(user, type, auth_token)
+SocialAuth.connect(user, type, auth_token)
 ```
 
 **Disconnecting a service**
 
 *Disconnecting destroys that the service but only if its a `Connected` service.*
 ```ruby
-SocialLogin.disconnect(user, type)
+SocialAuth.disconnect(user, type)
 ```
 
 **User create callbacks**
@@ -81,19 +81,19 @@ end
 ```
 **Other useful callbacks**
 
-*SocialLogin will look for the existence of these methods and call them only if they respond*
+*SocialAuth will look for the existence of these methods and call them only if they respond*
 ```ruby
 class User
-  
+
   #called when a service is abruptly invalidated. Gives you the opportunity to act or inform your users
   def service_disconnected_callback(service)
   end
-  
+
   def friend_joined_the_app_callback(user)
   end
-  
-  #I needed the ability to validate or swap out a user before it was created so this method can perform 
-  #last minute checks on the user. 
+
+  #I needed the ability to validate or swap out a user before it was created so this method can perform
+  #last minute checks on the user.
   def validate_existing_user(remote_id, service.type)
     return self
   end
@@ -115,12 +115,12 @@ end
 
 **friends_that_use_the_app explained**
 
-I wanted to create a quick and easy way to access your friends without querying each service's api or maintaining them in a database. 
+I wanted to create a quick and easy way to access your friends without querying each service's api or maintaining them in a database.
 
-So what I do is store a list of `remote_ids` in Redis cache for `n` days. 
+So what I do is store a list of `remote_ids` in Redis cache for `n` days.
 *You might ask what if I friend `user_x` and they join the app, I won't see `user_x` for n days*
 
-How I've gone about this is created the concept of `related_services` where by when `user_x` joins the app I append their `remote_id` to all their friend's `remote_ids`, so you never miss a friend! 
+How I've gone about this is created the concept of `related_services` where by when `user_x` joins the app I append their `remote_id` to all their friend's `remote_ids`, so you never miss a friend!
 
 **Exception handling inside friends_that_use_the_app:**
 If for any reason the `token` stored on the service becomes invalidated and the user attempts to make an external  friends request we will catch that exception and mark that service for disconnection (which means notifying the user and destroying that service). *Note** the service will only be destroyed if its a `Connected` service, if it's an `Authenticated` service we rethrow the exception.
@@ -133,7 +133,7 @@ BUNDLE_GEMFILE=gemfiles/rails42.gemfile bundle exec rspec spec
 ```
 
 ###Exception handling
-Because were integrating a variety of different gems to save us handling every exception they can throw at us I'm catching most of them and throwing our own blanket Exception. The most commonly used one is `SocialLogin::InvalidToken` which uses the error message from the original exception as its own.
+Because were integrating a variety of different gems to save us handling every exception they can throw at us I'm catching most of them and throwing our own blanket Exception. The most commonly used one is `SocialAuth::InvalidToken` which uses the error message from the original exception as its own.
 
 Exception | Notes
 --- | ---

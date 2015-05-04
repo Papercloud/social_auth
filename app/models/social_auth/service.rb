@@ -1,4 +1,4 @@
-module SocialLogin
+module SocialAuth
   class Service < ActiveRecord::Base
     #validations
     validates_presence_of :user, :access_token, :remote_id, :method
@@ -11,7 +11,7 @@ module SocialLogin
     belongs_to :user
 
     #settings
-    self.table_name = "social_login_services"
+    self.table_name = "social_auth_services"
 
     #callbacks
     after_create :append_to_associated_services
@@ -64,7 +64,7 @@ module SocialLogin
     end
 
     def services
-      self.class.where('remote_id IN (?) and type = ?', friend_ids, type)
+      self.class.where('remote_id IN (?)', friend_ids)
     end
 
     def self.append_to_associated_services(id)

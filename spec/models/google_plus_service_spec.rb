@@ -1,27 +1,27 @@
 require 'spec_helper'
 
-module SocialLogin
+module SocialAuth
 
   describe GooglePlusService do
     before :each do
       @user = User.create(email: "email@address.com")
       allow_any_instance_of(GooglePlusService).to receive(:redis_instance).and_return(Redis.new)
       allow_any_instance_of(GooglePlusService).to receive(:append_to_associated_services).and_return(true)
-      SocialLogin.google_client_id = "1053743633063-aaearku9rl008rc8vq7muvreifc4jbo8.apps.googleusercontent.com"
-      SocialLogin.google_client_secret = "rK6Fkmo6qpiiy0_SnWJDOlgv"
-      SocialLogin.google_redirect_uri = "https://developers.google.com/oauthplayground"
-      SocialLogin.google_api_key = "AIzaSyAKMHRoLKyRo5rivF8hq_Ic3SmvphBYIBk"
+      SocialAuth.google_client_id = "1053743633063-aaearku9rl008rc8vq7muvreifc4jbo8.apps.googleusercontent.com"
+      SocialAuth.google_client_secret = "rK6Fkmo6qpiiy0_SnWJDOlgv"
+      SocialAuth.google_redirect_uri = "https://developers.google.com/oauthplayground"
+      SocialAuth.google_api_key = "AIzaSyAKMHRoLKyRo5rivF8hq_Ic3SmvphBYIBk"
     end
 
     describe "social login methods" do
       it "receives init_with on authenticate" do
         expect(GooglePlusService).to receive(:init_with)
-        SocialLogin.authenticate("google_plus", {access_token: "access_token"})
+        SocialAuth.authenticate("google_plus", {access_token: "access_token"})
       end
 
       it "receives connect_with on connect" do
         expect(GooglePlusService).to receive(:connect_with)
-        SocialLogin.connect(@user, "google_plus", {access_token: "access_token"})
+        SocialAuth.connect(@user, "google_plus", {access_token: "access_token"})
       end
     end
 
@@ -30,7 +30,7 @@ module SocialLogin
         #create an override method on user which gets called whenever
         #we want a user created you do the rest!
         User.class_eval do
-          has_many :services, inverse_of: :user, class_name: SocialLogin::Service
+          has_many :services, inverse_of: :user, class_name: SocialAuth::Service
           def self.create_with_google_plus_request(request)
             new
           end

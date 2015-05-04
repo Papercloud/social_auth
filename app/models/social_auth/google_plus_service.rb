@@ -1,7 +1,7 @@
 require 'google_plus'
 require 'typhoeus'
 
-module SocialLogin
+module SocialAuth
   class GooglePlusService < Service
 
     def name
@@ -38,9 +38,9 @@ module SocialLogin
 
     def self.fetch_access_token(auth_token={})
       params = {
-        client_id: SocialLogin.google_client_id,
-        client_secret: SocialLogin.google_client_secret,
-        redirect_uri: SocialLogin.google_redirect_uri
+        client_id: SocialAuth.google_client_id,
+        client_secret: SocialAuth.google_client_secret,
+        redirect_uri: SocialAuth.google_redirect_uri
       }
       if auth_token[:auth_token].present?
         params[:code] = auth_token[:auth_token]
@@ -73,7 +73,7 @@ module SocialLogin
     end
 
     def self.create_connection(auth_token={})
-      GooglePlus.api_key = SocialLogin.google_api_key
+      GooglePlus.api_key = SocialAuth.google_api_key
       GooglePlus.access_token = auth_token[:access_token]
       GooglePlus::Person
     end

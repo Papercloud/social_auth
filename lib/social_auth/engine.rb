@@ -1,6 +1,6 @@
-module SocialLogin
+module SocialAuth
   class Engine < ::Rails::Engine
-    isolate_namespace SocialLogin
+    isolate_namespace SocialAuth
 
     config.generators do |g|
       g.test_framework      :rspec,        :fixture => false

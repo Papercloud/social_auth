@@ -1,7 +1,7 @@
 PATH
   remote: ../
   specs:
-    social_login (0.0.8)
+    social_auth (0.0.9)
       fb_graph2
       google_plus (~> 0.2.3)
       rails (~> 4.0)
@@ -72,7 +72,7 @@ GEM
       redis (~> 3.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    fb_graph2 (0.5.2)
+    fb_graph2 (0.6.0)
       activesupport (>= 3.2)
       httpclient (>= 2.4)
       multi_json
@@ -164,7 +164,7 @@ GEM
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
     safe_yaml (1.0.4)
-    sidekiq (3.3.3)
+    sidekiq (3.3.4)
       celluloid (>= 0.16.0)
       connection_pool (>= 2.1.1)
       json
@@ -216,6 +216,6 @@ DEPENDENCIES
   pg
   rails (= 4.2.0)
   rspec-rails
-  social_login!
+  social_auth!
   vcr
   webmock

@@ -1,19 +1,19 @@
 require 'rails/generators/active_record'
 
-class SocialLogin::InstallGenerator < Rails::Generators::Base
+class SocialAuth::InstallGenerator < Rails::Generators::Base
   include Rails::Generators::Migration
 
   source_root File.expand_path('../templates', __FILE__)
 
   def copy_migrations
-    copy_migration "create_social_login_services"
+    copy_migration "create_social_auth_services"
 
     puts "Installation successful. You can now run:"
     puts "  rake db:migrate"
   end
 
   def copy_initializer
-    template "initializer.rb", "config/initializers/social_login.rb"
+    template "initializer.rb", "config/initializers/social_auth.rb"
   end
 
   def self.next_migration_number(dirname)

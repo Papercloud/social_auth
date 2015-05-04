@@ -1,12 +1,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "social_login/version"
+require "social_auth/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "social_login"
-  s.version     = SocialLogin::VERSION
+  s.name        = "social_auth"
+  s.version     = SocialAuth::VERSION
   s.authors     = ["William Porter"]
   s.email       = ["wp@papercloud.com.au"]
   s.homepage    = "http://papercloud.com"

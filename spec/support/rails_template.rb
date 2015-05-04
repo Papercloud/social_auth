@@ -5,7 +5,7 @@ copy_file File.expand_path('../../support/database.yml'), "#{ENV['RAILS_ROOT']}/
 rake "db:drop:all"
 rake "db:create:all"
 
-generate "social_login:install"
+generate "social_auth:install"
 generate :model, 'user email:string'
 
 gem_dir = File.expand_path('..',File.dirname(__FILE__))

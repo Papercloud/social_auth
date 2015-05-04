@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module SocialLogin
+module SocialAuth
 
   describe FacebookService do
     before :each do
@@ -12,12 +12,12 @@ module SocialLogin
     describe "social login methods" do
       it "receives init_with on authenticate" do
         expect(FacebookService).to receive(:init_with)
-        SocialLogin.authenticate("facebook", {access_token: "access_token"})
+        SocialAuth.authenticate("facebook", {access_token: "access_token"})
       end
 
       it "receives connect_with on connect" do
         expect(FacebookService).to receive(:connect_with)
-        SocialLogin.connect(@user, "facebook", {access_token: "access_token"})
+        SocialAuth.connect(@user, "facebook", {access_token: "access_token"})
       end
     end
 
@@ -36,7 +36,7 @@ module SocialLogin
         #create an override method on user which gets called whenever
         #we want a user created you do the rest!
         User.class_eval do
-          has_many :services, inverse_of: :user, class_name: SocialLogin::Service
+          has_many :services, inverse_of: :user, class_name: SocialAuth::Service
           def self.create_with_facebook_request(request)
             new
           end
