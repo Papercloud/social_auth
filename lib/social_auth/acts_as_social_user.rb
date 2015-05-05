@@ -16,7 +16,7 @@ module SocialAuth
 
     module ClassMethods
       def acts_as_social_user(options = {})
-        has_many :services, foreign_key: options[:foreign_key] || :user_id, class_name: SocialAuth::Service
+        has_many :services, foreign_key: options[:foreign_key] || :user_id, class_name: SocialAuth::Service, dependent: :destroy
       end
     end
   end
