@@ -19,6 +19,10 @@ module SocialAuth
 
     rescue Twitter::Error::Unauthorized => e
       raise InvalidToken.new(e.message)
+    rescue Twitter::Error::TooManyRequests => e
+      raise RateLimitExceeded.new(e.message)
+    rescue Twitter::Error => e
+      raise Error.new(e.message)
     end
 
     def self.connect_with(user, auth_token={}, method="Connected")
@@ -33,6 +37,10 @@ module SocialAuth
 
     rescue Twitter::Error::Unauthorized => e
       raise InvalidToken.new(e.message)
+    rescue Twitter::Error::TooManyRequests => e
+      raise RateLimitExceeded.new(e.message)
+    rescue Twitter::Error => e
+      raise Error.new(e.message)
     end
 
     def self.create_connection(auth_token={})
