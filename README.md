@@ -139,4 +139,5 @@ Exception | Notes
 --- | ---
 `InvalidToken`| Raised whenever a service returns an invalid token error.
 `ServiceDoesNotExist`| Raised when your trying to disconnect a service from a user and it doesn't exist
+`RateLimitExceeded`| Exceeded your api rates
 `Error`| General exception for artbitrary assertions

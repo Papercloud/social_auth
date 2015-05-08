@@ -145,6 +145,7 @@ module SocialAuth
 
   #exceptions
   class InvalidToken < StandardError ; end
+  class RateLimitExceeded < StandardError ; end
   class BadRequest < StandardError ; end
   class ServiceDoesNotExist < StandardError ; end
   class Error < StandardError ; end
