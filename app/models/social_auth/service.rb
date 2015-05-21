@@ -2,8 +2,8 @@ module SocialAuth
   class Service < ActiveRecord::Base
     #validations
     validates_presence_of :user, :access_token, :remote_id, :method
-    validates_uniqueness_of :remote_id, scope: [:type], :if => lambda { |service| service.method == 'Authenticated' }
-    validates_uniqueness_of :remote_id, scope: [:type, :user_id], :if => lambda { |service| service.method == 'Connected' }
+    validates_uniqueness_of :remote_id, scope: [:type], conditions: -> { where(method: 'Authenticated') }, :if => lambda { |service| service.method == 'Authenticated' }
+    validates_uniqueness_of :remote_id, scope: [:type, :user_id], conditions: -> { where(method: 'Connected') }, :if => lambda { |service| service.method == 'Connected' }
 
     before_validation :validate_methods
 

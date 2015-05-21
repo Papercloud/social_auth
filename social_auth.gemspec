@@ -31,5 +31,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'awesome_print'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
+  s.add_development_dependency 'pry'
 
 end

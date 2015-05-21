@@ -161,6 +161,12 @@ module SocialAuth
       xit "can't connect a service you have already authenticated with" do
       end
 
+      it "can create 'Authenticated' service if 'Connected' service with same remote_id already exists" do
+        service = Service.create(access_token: {access_token: "access_token"}, remote_id: "1", user: User.create, method: "Connected")
+        other_service = Service.new(access_token: {access_token: "access_token"}, remote_id: "1", user: @user, method: "Authenticated")
+        expect(other_service).to be_valid
+      end
+
       it "'Connected' service is valid if another 'Authenticated' service exists with the same remote_id but for another user" do
         service = Service.create(access_token: {access_token: "access_token"}, remote_id: "1", user: User.create, method: "Authenticated")
         other_service = Service.new(access_token: {access_token: "access_token"}, remote_id: "1", user: @user, method: "Connected")
@@ -173,8 +179,8 @@ module SocialAuth
       end
 
       it "cannot have multiple authenticate services with same remote_id" do
-        service = Service.create(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Authenticated")
-        another_service = Service.new(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Authenticated")
+        service = Service.create!(access_token: {access_token: "fdf"}, remote_id: "34343", user: @user, method: "Authenticated")
+        another_service = Service.new(access_token: {access_token: "fdf"}, remote_id: "34343", user: User.create, method: "Authenticated")
         expect(another_service).to_not be_valid
       end
 
@@ -223,9 +229,9 @@ module SocialAuth
 
       it "returns service if no authenticate method exists however a single connected service does exist" do
         service = Service.create(access_token: {access_token: "access_token"}, remote_id: "1", user: @user, method: "Connected")
-          expect{
-            expect(Service.create_with_request("1", @user, "Authenticated", {access_token: "access_token"})).to eq service
-          }.to change(Service, :count).by(0)
+        expect{
+          expect(Service.create_with_request("1", @user, "Authenticated", {access_token: "access_token"})).to eq service
+        }.to change(Service, :count).by(0)
       end
 
       xit "raises exception if not authentication method exists however multiple connected services exist with the same remote_id" do
