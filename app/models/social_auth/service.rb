@@ -118,7 +118,7 @@ module SocialAuth
     end
 
     def redis_instance
-      $redis #need to change out for an configurable var
+      SocialAuth.redis_instance_method
     end
 
     def authenticated?
