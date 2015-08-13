@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://www.googleapis.com/oauth2/v3/token?client_id=1053743633063-aaearku9rl008rc8vq7muvreifc4jbo8.apps.googleusercontent.com&client_secret=rK6Fkmo6qpiiy0_SnWJDOlgv&code=4/81ovnVqwDmSnROuqAd9AfVu-0tZ7-ZdzQ-TVdpMAFTk.4gM5OPkuRu0TBrG_bnfDxpL07IdjmQI&grant_type=authorization_code&redirect_uri=https://developers.google.com/oauthplayground
+    uri: https://www.googleapis.com/oauth2/v3/token?client_id=1053743633063-aaearku9rl008rc8vq7muvreifc4jbo8.apps.googleusercontent.com&client_secret=rK6Fkmo6qpiiy0_SnWJDOlgv&code=4/5kn069Y8UhqDJS46RRsl6bw63xLSuMmabN45s_0lo2Y&grant_type=authorization_code&redirect_uri=https://developers.google.com/oauthplayground
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Expires:
       - Fri, 01 Jan 1990 00:00:00 GMT
       Date:
-      - Mon, 13 Apr 2015 07:53:05 GMT
+      - Thu, 13 Aug 2015 12:05:11 GMT
       Vary:
       - Origin,Accept-Encoding
       - X-Origin
@@ -36,7 +36,9 @@ http_interactions:
       Server:
       - GSE
       Alternate-Protocol:
-      - 443:quic,p=0.5
+      - 443:quic,p=1
+      Alt-Svc:
+      - quic=":443"; p="1"; ma=604800
       Accept-Ranges:
       - none
       Transfer-Encoding:
@@ -45,17 +47,17 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-         "access_token": "ya29.VAEaMMShAIu2VMNvBtGPNKRJPMBVS1uHR0Ule_I6SssLFp7_aLO_j9-PiKeA-d6d9HZJxWnblziMPQ",
+         "access_token": "ya29.zgHeLxwqJzsOKdyp6FRXOGzmh_Rbye5zOyqo4IicuqlriEmaotSDpWBIRoHoX6kISme0",
          "token_type": "Bearer",
          "expires_in": 3600,
-         "refresh_token": "1/YIe5kRpXUZCbfvhh3AHD2S0GalGEQA-2K2KPe4XBZXA",
-         "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBlMDYzZGUwYzlmNjY4NmRlYjY2ZTc0NTRiMzIwMWMxMTE0ZWJhNmUifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwic3ViIjoiMTE3NjUyMDUwMDkwMzk0MjQ5NDYyIiwiYXpwIjoiMTA1Mzc0MzYzMzA2My1hYWVhcmt1OXJsMDA4cmM4dnE3bXV2cmVpZmM0amJvOC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImVtYWlsIjoiZGF3aWxzdGVyMTQzQGdtYWlsLmNvbSIsImF0X2hhc2giOiJpRjF0VGVhRmpWMUhRZkliR0hGbzB3IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF1ZCI6IjEwNTM3NDM2MzMwNjMtYWFlYXJrdTlybDAwOHJjOHZxN211dnJlaWZjNGpibzguYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJpYXQiOjE0Mjg5MTE1ODUsImV4cCI6MTQyODkxNTE4NX0.fUXG1HPS2K0A-6ae-xOlePpGS7Zi5kxyDP2csFs7NFDuuivfYCXnN5k-BHrYMz8gdSzqVIq_7NRZ-GJwEguKPIbprF1Wyn5Uq5sqSsUVyYhdTMLo7WlBOY9tRW1ueVDtfHumx8DRFegCLZy7EzBKJF8ljy0lb3EnL4sXQ-0b0ck"
+         "refresh_token": "1/qsb76eMjUK81D0vKG80GiYhb9t18zKjCcZVIhTnaDLI",
+         "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc3N2YyYjI0MmRiZjQxY2Y1YThlZTcwODQ1YjYwNDZjMTA4Njk2NTEifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXRfaGFzaCI6IkY2dE5lT2ZPb0hnOXVMaTA0ZlVaX3ciLCJhdWQiOiIxMDUzNzQzNjMzMDYzLWFhZWFya3U5cmwwMDhyYzh2cTdtdXZyZWlmYzRqYm84LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3MjI4Njc4NDk4MzAyOTY3NjE2IiwiYXpwIjoiMTA1Mzc0MzYzMzA2My1hYWVhcmt1OXJsMDA4cmM4dnE3bXV2cmVpZmM0amJvOC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImlhdCI6MTQzOTQ2NzUxMSwiZXhwIjoxNDM5NDcxMTExfQ.NalW1ykCT-sPr3uJ_LFGDjCKkp14_ph9Tx9BG_6fpofLrYazZoYXTra4Gc_qC0Ud0wKc84qu_0rN1HcwXZAbBWCZDgtw27ruHLlG9zTeAdASCxFXDEqC5mV92-NDGW3xg79KZrI3HAq6AIc1_v2aAlJmsoHm6JEGznEq2HThP8r7pOO6QM-euN2JQkDPIyXxjHOTIayIrvY7FaUSlnLapVo7RQrSO6fprJ4RuVEYVoX0aGq-4VVWuxAipkcFJlEvaHzh2sCNa1DIc_rxo0RFMVqlS92DOJqsurBzmVbn5hOTLtpRppAmBG2e-qDlbDsShE3WF3MV5GJw5ZrLytcAkA"
         }
-    http_version: 
-  recorded_at: Mon, 13 Apr 2015 07:53:05 GMT
+    http_version:
+  recorded_at: Thu, 13 Aug 2015 12:05:11 GMT
 - request:
     method: get
-    uri: https://www.googleapis.com/plus/v1/people/me?key=AIzaSyAKMHRoLKyRo5rivF8hq_Ic3SmvphBYIBk&pp=0
+    uri: https://www.googleapis.com/plus/v1/people/me?key=1053743633063-kf45rqjj2iqcgf1fmah8scico61knjfc.apps.googleusercontent.com&pp=0
     body:
       encoding: US-ASCII
       string: ''
@@ -65,7 +67,7 @@ http_interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - OAuth ya29.VAEaMMShAIu2VMNvBtGPNKRJPMBVS1uHR0Ule_I6SssLFp7_aLO_j9-PiKeA-d6d9HZJxWnblziMPQ
+      - OAuth ya29.zgHeLxwqJzsOKdyp6FRXOGzmh_Rbye5zOyqo4IicuqlriEmaotSDpWBIRoHoX6kISme0
       User-Agent:
       - Ruby
   response:
@@ -74,13 +76,13 @@ http_interactions:
       message: OK
     headers:
       Expires:
-      - Mon, 13 Apr 2015 07:53:06 GMT
+      - Thu, 13 Aug 2015 12:05:12 GMT
       Date:
-      - Mon, 13 Apr 2015 07:53:06 GMT
+      - Thu, 13 Aug 2015 12:05:12 GMT
       Cache-Control:
       - private, max-age=0, must-revalidate, no-transform
       Etag:
-      - '"RqKWnRU4WW46-6W3rWhLR9iFZQM/oB9pPaM45R0uz8AWm-aMT-L7Bbw"'
+      - '"gLJf7LwN3wOpLHXk4IeQ9ES9mEc/EMMoVOfeNy6GgQiIZ9bfNYLq_p0"'
       Vary:
       - Origin
       - X-Origin
@@ -93,18 +95,18 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
-      - '1394'
+      - '744'
       Server:
       - GSE
       Alternate-Protocol:
-      - 443:quic,p=0.5
+      - 443:quic,p=1
+      Alt-Svc:
+      - quic=":443"; p="1"; ma=604800
     body:
       encoding: UTF-8
-      string: '{"kind":"plus#person","etag":"\"RqKWnRU4WW46-6W3rWhLR9iFZQM/oB9pPaM45R0uz8AWm-aMT-L7Bbw\"","gender":"male","emails":[{"value":"dawilster143@gmail.com","type":"account"}],"urls":[{"value":"https://twitter.com/willports","type":"otherProfile","label":"Twitter"},{"value":"http://wrapbootstrap.com/user/william","type":"otherProfile","label":"Bootstrap
-        Template developer"}],"objectType":"person","id":"117652050090394249462","displayName":"William
-        Porter","name":{"familyName":"Porter","givenName":"William"},"url":"https://plus.google.com/117652050090394249462","image":{"url":"https://lh3.googleusercontent.com/-pM_u9D4Qq_o/AAAAAAAAAAI/AAAAAAAAAZ0/5LI0IQyn4EA/photo.jpg?sz=50","isDefault":false},"organizations":[{"name":"RMIT
-        University","title":"Computer Science","type":"school","startDate":"2012","primary":true},{"name":"psdtobootstrap.com","title":"Lead
-        Developer","type":"work","startDate":"2012","primary":true}],"placesLived":[{"value":"Melbourne"}],"isPlusUser":true,"language":"en_GB","ageRange":{"min":21},"circledByCount":23,"verified":false,"cover":{"layout":"banner","coverPhoto":{"url":"https://lh3.googleusercontent.com/-IxRknD2180s/UcojKSfeWII/AAAAAAAABkA/IKXa_LVQP0U/s630-fcrop64=1,200e2ecddf77d131/%25C2%25A9%2BAravind%2BKrishnaswamy_20120408-%252818_58_48%2529-sobranes-arch-s2-0387-Edit.jpg","height":624,"width":940},"coverInfo":{"topImageOffset":0,"leftImageOffset":0}}}'
-    http_version: 
-  recorded_at: Mon, 13 Apr 2015 07:53:06 GMT
-recorded_with: VCR 2.9.3
+      string: '{"kind":"plus#person","etag":"\"gLJf7LwN3wOpLHXk4IeQ9ES9mEc/EMMoVOfeNy6GgQiIZ9bfNYLq_p0\"","gender":"male","urls":[{"value":"https://profiles.google.com/107228678498302967616/buzz","type":"contributor","label":"Buzz"}],"objectType":"person","id":"107228678498302967616","displayName":"Christian
+        Bieniak","name":{"familyName":"Bieniak","givenName":"Christian"},"url":"https://plus.google.com/107228678498302967616","image":{"url":"https://lh3.googleusercontent.com/-Nw-eksbnWOA/AAAAAAAAAAI/AAAAAAAAAFs/0Vt6H3WKnqY/photo.jpg?sz=50","isDefault":false},"organizations":[{"name":"Papercloud","title":"Software
+        Developer","type":"work","primary":false}],"isPlusUser":true,"language":"en_GB","ageRange":{"min":21},"circledByCount":51,"verified":false}'
+    http_version:
+  recorded_at: Thu, 13 Aug 2015 12:05:11 GMT
+recorded_with: VCR 2.9.2

@@ -7,10 +7,12 @@ module SocialAuth
       @user = User.create(email: "email@address.com")
       allow_any_instance_of(GooglePlusService).to receive(:redis_instance).and_return(Redis.new)
       allow_any_instance_of(GooglePlusService).to receive(:append_to_associated_services).and_return(true)
+
       SocialAuth.google_client_id = "1053743633063-aaearku9rl008rc8vq7muvreifc4jbo8.apps.googleusercontent.com"
       SocialAuth.google_client_secret = "rK6Fkmo6qpiiy0_SnWJDOlgv"
       SocialAuth.google_redirect_uri = "https://developers.google.com/oauthplayground"
       SocialAuth.google_api_key = "AIzaSyAKMHRoLKyRo5rivF8hq_Ic3SmvphBYIBk"
+      SocialAuth.google_ios_api_key = "1053743633063-kf45rqjj2iqcgf1fmah8scico61knjfc.apps.googleusercontent.com"
     end
 
     describe "social login methods" do

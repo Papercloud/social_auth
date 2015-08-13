@@ -74,7 +74,6 @@ module SocialAuth
     end
 
     def self.create_connection(auth_token={})
-      puts auth_token[:client_os]
       GooglePlus.api_key = auth_token[:client_os] == "ANDROID" ?  SocialAuth.google_android_api_key : SocialAuth.google_ios_api_key
       GooglePlus.access_token = auth_token[:access_token]
 
