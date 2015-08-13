@@ -62,8 +62,9 @@ RSpec.configure do |config|
 
   def google_plus_access_token
     {
-      auth_token: "4/81ovnVqwDmSnROuqAd9AfVu-0tZ7-ZdzQ-TVdpMAFTk.4gM5OPkuRu0TBrG_bnfDxpL07IdjmQI",
-      refresh_token: "1/b-cUt2E2hoExpHcu2MaglfxeG6aLzYH7ViSjWFhRGcR90RDknAdJa_sgfheVM0XT"
+      auth_token: "4/5kn069Y8UhqDJS46RRsl6bw63xLSuMmabN45s_0lo2Y",
+      refresh_token: "1/b-cUt2E2hoExpHcu2MaglfxeG6aLzYH7ViSjWFhRGcR90RDknAdJa_sgfheVM0XT",
+      client_os: "IOS"
     }
   end
 

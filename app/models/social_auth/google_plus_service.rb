@@ -10,6 +10,7 @@ module SocialAuth
 
     def self.init_with(auth_token={})
       access_token = fetch_access_token(auth_token)
+      access_token[:client_os] = auth_token[:client_os]
       request = create_connection(access_token).get('me')
 
       return create_with_request(
@@ -73,8 +74,9 @@ module SocialAuth
     end
 
     def self.create_connection(auth_token={})
-      GooglePlus.api_key = SocialAuth.google_api_key
+      GooglePlus.api_key = auth_token[:client_os] == "ANDROID" ?  SocialAuth.google_android_api_key : SocialAuth.google_ios_api_key
       GooglePlus.access_token = auth_token[:access_token]
+
       GooglePlus::Person
     end
 

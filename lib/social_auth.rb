@@ -27,6 +27,12 @@ module SocialAuth
   mattr_accessor :google_api_key
   @@google_api_key = nil
 
+  mattr_accessor :google_android_api_key
+  @@google_api_key = nil
+
+  mattr_accessor :google_ios_api_key
+  @@google_api_key = nil
+  
   # Used to set up Social Login from the initializer.
   def self.setup
     yield self
