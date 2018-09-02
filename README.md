@@ -6,12 +6,12 @@ Designed specifically for API authentication it makes supporting multiple login 
 Each social network eg. `Twitter, Facebook` is known as a service. A user can have multiple services.
 Each service is identified by a `method` which can either be `Authenticated` (The user has used this service to authenticate and login with) or `Connected` (Which associates that service and allows importing of contacts and api access).
 
-####Supported Social Networks
+#### Supported Social Networks
 - Facebook: https://github.com/nov/fb_graph2
 - Twitter:  https://github.com/sferik/twitter
 - Google+: https://github.com/seejohnrun/google_plus
 
-###Install
+### Install
 ```
 gem 'social_auth'
 ```
@@ -30,7 +30,7 @@ Type | Token | Notes
 `google_plus`| `{auth_token: "token"}`| *We exchange your auth_token for a refresh_token which we do store*
 `twitter`| `{access_token: "token", access_token_secret: "secret_token"}`
 
-###Usage
+### Usage
 **Authenticating**
 
 ```ruby
@@ -100,7 +100,7 @@ class User
 end
 ```
 
-##Friends and Associated Services
+## Friends and Associated Services
 
 As each Service has their own set of `friends` we've created an easy way to access all your friends across each service. `acts_as_social_user` gives our `user` access to the following methods
 - `friends_that_use_the_app` (returns a collection of users)
@@ -125,14 +125,14 @@ How I've gone about this is created the concept of `related_services` where by w
 **Exception handling inside friends_that_use_the_app:**
 If for any reason the `token` stored on the service becomes invalidated and the user attempts to make an external  friends request we will catch that exception and mark that service for disconnection (which means notifying the user and destroying that service). *Note** the service will only be destroyed if its a `Connected` service, if it's an `Authenticated` service we rethrow the exception.
 
-###Running specs
+### Running specs
 
 ```ruby
 BUNDLE_GEMFILE=gemfiles/rails42.gemfile bundle install
 BUNDLE_GEMFILE=gemfiles/rails42.gemfile bundle exec rspec spec
 ```
 
-###Exception handling
+### Exception handling
 Because were integrating a variety of different gems to save us handling every exception they can throw at us I'm catching most of them and throwing our own blanket Exception. The most commonly used one is `SocialAuth::InvalidToken` which uses the error message from the original exception as its own.
 
 Exception | Notes
